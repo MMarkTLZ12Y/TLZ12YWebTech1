@@ -1,11 +1,57 @@
-header h1 {
-    text-align: center;
+* { box-sizing:border-box; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 24px;
 }
 
-main h1 {
-    text-align: center;
+h1 {
+  text-align: center;
+  margin-bottom: 36px;
 }
 
-main {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+#myH1_1 {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table.grid {
+  border: 2px solid grey;
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 600px;
+  table-layout: fixed;
+}
+
+.grid th,
+.grid td {
+  border: 1px solid grey;
+  padding: 10px 12px;
+  vertical-align: top;
+  font-weight: 700;
+  height: 120px;
+  width: 33.33%; 
+}
+
+.head-row th {
+  background: #cfcfcf;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.row-red td { background: red; color: black; }
+.row-red .bottom { vertical-align: bottom; }
+.row-red .right  { text-align: right; }
+.row-red .left  { text-align: left; vertical-align: middle; }
+
+.row-light td { background: rgb(223, 203, 135); vertical-align: middle;}
+
+.row-mixed td { background: rgb(223, 203, 135); vertical-align: middle;}
+.row-mixed .mid-yellow { background: yellow; text-align: center;}
+
+.scrollbox {
+  width: auto;
+  height: 96px;
+  overflow: scroll;
+  background: rgb(223, 203, 135);
+  padding: 6px;
+  border: 1px solid white;
 }

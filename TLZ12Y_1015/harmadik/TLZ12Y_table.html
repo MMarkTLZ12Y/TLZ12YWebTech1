@@ -1,40 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-    <link rel="stylesheet" href="TLZ12Y_table.css">
-    <h1>Táblázat készítés, formázás</h1>
-    </header>
-    <main>
-    <h1>Táblázat elemei</h1>
-    <table>
-  <tr>
-    <th>1. oszlop fejléc</th>
-    <th>2. oszlop fejléc</th>
-    <th>3. oszlop fejléc</th>
-  </tr>
-  <tr>
-    <td>1. sor 1. elem</td>
-    <td>1. sor 2. elem</td>
-    <td>1. sor 3. elem</td>
-  </tr>
-  <tr>
-    <td>2. sor 3. elem</td>
-    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum debitis sapiente pariatur repellat exercitationem dignissimos, expedita nulla voluptate laudantium. Voluptas unde vitae architecto voluptatem dolore distinctio pariatur ipsa libero delectus.</td>
-    <td>2. sor 3. elem</td>
-  </tr>
-  <tr>
-    <td>3. sor 1. elem</td>
-    <td>3. sor 2. elem</td>
-    <td>3. sor 3. elem</td>
-  </tr>
-</table>
-</main>
+<html lang="hu">
 
+<head>
+  <meta charset="UTF-8" />
+  <title>Színezett táblázat</title>
+  <link rel="stylesheet" href="TLZ12Y_table.css" />
+</head>
+
+<body>
+
+  <h1 id="myH1_1">Táblázat készítés, formázása</h1>
+  <h1 id="myH1_2">Táblázat elemei</h1>
+  
+  <table class="grid">
+    <thead>
+      <tr class="head-row">
+        <th>1. oszlop fejléc</th>
+        <th>2. oszlop fejléc</th>
+        <th>3. oszlop fejléc</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="row-red">
+        <td class="left">1. sor 1. elem</td>
+        <td class="right">1. sor 2. elem</td>
+        <td class="bottom">1. sor 3. elem</td>
+      </tr>
+
+      <tr class="row-light">
+        <td>2. sor 1. elem</td>
+        <td>
+          <div class="scrollbox">
+            <strong>2. sor 2. elem</strong><br>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate nisi ratione ex quae provident sequi vel consectetur maxime ut est laborum magni, asperiores eligendi officiis. Aspernatur aliquam blanditiis quas consequuntur!
+          </div>
+        </td>
+        <td>2. sor 3. elem</td>
+      </tr>
+
+      <tr class="row-mixed">
+        <td>3. sor 1. elem</td>
+        <td class="mid-yellow">3. sor 2. elem</td>
+        <td>3. sor 3. elem</td>
+      </tr>
+    </tbody>
+  </table>
 </body>
+
 </html>
