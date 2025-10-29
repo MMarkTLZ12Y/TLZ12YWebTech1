@@ -35,6 +35,7 @@ table.grid {
   background: #cfcfcf;
   text-align: center;
   vertical-align: middle;
+  font-style: italic;
 }
 
 .row-red td { background: red; color: black; }
