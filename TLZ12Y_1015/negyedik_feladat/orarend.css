@@ -52,3 +52,7 @@ td.slot{
 .orange{ background:#ffa06b; }
 .green{  background:#aaf0a0; }
 .blue{   background:#9fc0ff; }
+
+
+.slot.elmelet{ background-color: lightblue;}
+.slot.gyak{ background-color: orange;}
