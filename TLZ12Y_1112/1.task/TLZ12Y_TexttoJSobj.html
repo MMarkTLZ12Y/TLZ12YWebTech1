@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>JSON Text konvertálása JavaScript objektummá</title>
+</head>
+<body>
+
+<h2>JSON Text konvertálása JavaScript objektummá</h2>
+
+<p><strong>JSON szöveg:</strong></p>
+
+<textarea id="jsonText" rows="6" cols="60">
+{
+  "nev": "Molnár Márk",
+  "iranyitoszam": "3529",
+  "varos": "Miskolc",
+  "egyetem": "Miskolci Egyetem"
+}
+</textarea><br><br>
+
+<button onclick="konvertal()">Konvertálás JS objektummá</button>
+
+<h3>Eredmény:</h3>
+<div id="eredmeny"></div>
+
+<script>
+function konvertal() {
+    try {
+        // 1️⃣ JSON text beolvasása
+        const jsonText = document.getElementById("jsonText").value;
+
+        // 2️⃣ Átalakítás JS objektummá
+        const obj = JSON.parse(jsonText);
+
+        // 3️⃣ Kiírás a böngészőbe
+        let output = `
+            <p><strong>Név:</strong> ${obj.nev}</p>
+            <p><strong>Irányítószám:</strong> ${obj.iranyitoszam}</p>
+            <p><strong>Város:</strong> ${obj.varos}</p>
+            <p><strong>Egyetem:</strong> ${obj.egyetem}</p>
+        `;
+
+        document.getElementById("eredmeny").innerHTML = output;
+
+    } catch (error) {
+        document.getElementById("eredmeny").innerHTML =
+            "<p style='color:red;'>Hiba: a JSON szöveg nem érvényes!</p>";
+    }
+}
+</script>
+
+</body>
+</html>

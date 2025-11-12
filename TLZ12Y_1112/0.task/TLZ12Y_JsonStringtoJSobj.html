@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>JSON fájl feldolgozás, beolvasás - JavaScript-ben</title>
+</head>
+<body>
+<h3>JSON fájl feldolgozás, beolvasás - JavaScript-ben</h3>
+
+<p><strong>JSON:</strong></p>
+<textarea id="jsonInput" rows="8" cols="50">
+[
+  {"nev": "HTML5", "kiterjesztes": ".html"},
+  {"nev": "CSS3", "kiterjesztes": ".css"},
+  {"nev": "JavaScript", "kiterjesztes": ".js"}
+]
+</textarea><br><br>
+
+<button onclick="jsonBeolvasas()">JSON beolvasás</button>
+
+<h3>Eredmény:</h3>
+<div id="eredmeny"></div>
+
+<script>
+function jsonBeolvasas() {
+    try {
+        // 1️⃣ JSON string beolvasása a textarea-ból
+        const jsonString = document.getElementById('jsonInput').value;
+
+        // 2️⃣ Átalakítás JS objektummá
+        const obj = JSON.parse(jsonString);
+
+        // 3️⃣ Kiírás formázottan
+        let output = "<ul>";
+        obj.forEach(elem => {
+            output += `<li>Név: ${elem.nev}, kiterjesztés: ${elem.kiterjesztes}</li>`;
+        });
+        output += "</ul>";
+
+        document.getElementById('eredmeny').innerHTML = output;
+    } catch (error) {
+        document.getElementById('eredmeny').innerHTML =
+          "<p style='color:red;'>Hibás JSON formátum!</p>";
+    }
+}
+</script>
+</body>
+</html>
