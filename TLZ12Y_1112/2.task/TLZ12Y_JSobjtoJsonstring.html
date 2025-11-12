@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript objektum konvertálása JSON String</title>
+</head>
+<body>
+
+<h2>JavaScript objektum konvertálása JSON String</h2>
+
+<script>
+// 1️⃣ JavaScript objektum létrehozása
+let hallgato = {
+    "Egyetem": "Miskolci Egyetem",
+    "Város": "Miskolc",
+    "Irányítószám": "3515",
+    "Név": "Hallgató Neve"
+};
+
+// 2️⃣ Objektum konvertálása JSON stringgé
+let jsonString = JSON.stringify(hallgato);
+
+// 3️⃣ Eredmény megjelenítése
+document.write(jsonString);
+</script>
+
+</body>
+</html>
