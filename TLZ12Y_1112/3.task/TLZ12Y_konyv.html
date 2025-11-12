@@ -30,7 +30,6 @@
   <ul id="lista"></ul>
 
   <script>
-    // JSON fájl beolvasása és a könyvek listájának megjelenítése
     fetch('TLZ12Y_konyv.json')
       .then(resp => {
         if (!resp.ok) throw new Error('Nem található a TLZ12Y_konyv.json fájl!');
