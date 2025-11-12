@@ -14,17 +14,14 @@
 
 <script>
 function jsonGeneralas() {
-    // 1️⃣ JavaScript objektum létrehozása
     const fajlok = [
         { "Név": "HTML5", "kiterjesztes": ".html" },
         { "Név": "CSS3", "kiterjesztes": ".css" },
         { "Név": "JavaScript", "kiterjesztes": ".js" }
     ];
 
-    // 2️⃣ JS objektum konvertálása JSON stringgé
     const jsonString = JSON.stringify(fajlok);
 
-    // 3️⃣ Eredmény kiírása
     document.getElementById("jsonOutput").textContent = jsonString;
 }
 </script>

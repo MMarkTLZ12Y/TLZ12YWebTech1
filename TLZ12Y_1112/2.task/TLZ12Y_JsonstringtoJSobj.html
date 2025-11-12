@@ -9,13 +9,13 @@
 <h2>JSON String konvertálása JavaScript objektummá</h2>
 
 <script>
-// 1️⃣ JSON string létrehozása
+
 let jsonString = '{"egyetem": "Miskolci Egyetem", "varos": "Miskolc", "iranyitoszam": 3515, "nev": "Hallgató Neve"}';
 
-// 2️⃣ JSON string átalakítása JS objektummá
+
 let hallgato = JSON.parse(jsonString);
 
-// 3️⃣ Eredmények megjelenítése a böngészőben
+
 document.write("<strong>Egyetem:</strong> " + hallgato.egyetem + "<br>");
 document.write("<strong>Város:</strong> " + hallgato.varos + "<br>");
 document.write("<strong>Irányítószám:</strong> " + hallgato.iranyitoszam + "<br>");

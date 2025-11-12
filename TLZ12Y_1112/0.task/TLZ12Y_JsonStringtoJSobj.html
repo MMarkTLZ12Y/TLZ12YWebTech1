@@ -24,13 +24,13 @@
 <script>
 function jsonBeolvasas() {
     try {
-        // 1️⃣ JSON string beolvasása a textarea-ból
+        
         const jsonString = document.getElementById('jsonInput').value;
 
-        // 2️⃣ Átalakítás JS objektummá
+        
         const obj = JSON.parse(jsonString);
 
-        // 3️⃣ Kiírás formázottan
+        
         let output = "<ul>";
         obj.forEach(elem => {
             output += `<li>Név: ${elem.nev}, kiterjesztés: ${elem.kiterjesztes}</li>`;

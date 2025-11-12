@@ -27,13 +27,13 @@
 <script>
 function konvertal() {
     try {
-        // 1️⃣ JSON text beolvasása
+        
         const jsonText = document.getElementById("jsonText").value;
 
-        // 2️⃣ Átalakítás JS objektummá
+        
         const obj = JSON.parse(jsonText);
 
-        // 3️⃣ Kiírás a böngészőbe
+        
         let output = `
             <p><strong>Név:</strong> ${obj.nev}</p>
             <p><strong>Irányítószám:</strong> ${obj.iranyitoszam}</p>
