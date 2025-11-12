@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>JSON megvalósítása – JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      margin: 32px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      margin-top: 28px;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    li {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>JSON megvalósítása – JavaScript</h1>
+  <h2>Könyvek listája</h2>
+  <ul id="lista"></ul>
+
+  <script>
+    // JSON fájl beolvasása és a könyvek listájának megjelenítése
+    fetch('TLZ12Y_konyv.json')
+      .then(resp => {
+        if (!resp.ok) throw new Error('Nem található a TLZ12Y_konyv.json fájl!');
+        return resp.json();
+      })
+      .then(data => {
+        const lista = document.getElementById('lista');
+        const konyvek = data.konyvek.konyv;
+
+        konyvek.forEach(k => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>Szerző:</strong> ${k.iro} 
+                          <strong>cím:</strong> ${k.cim} 
+                          <strong>Kiadás éve:</strong> ${k.kiadas}`;
+          lista.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById('lista').innerHTML =
+          `<li style="color:red;">Hiba történt: ${err.message}</li>`;
+      });
+  </script>
+</body>
+</html>
