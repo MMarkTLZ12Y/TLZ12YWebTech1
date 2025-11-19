@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tömbökön belüli tömbök ciklusa</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 28px; line-height: 1.5; }
+    h1 { font-size: 24px; margin-bottom: 6px; }
+    h2 { margin-top: 8px; }
+    h3 { margin: 14px 0 6px; }
+    ul { margin: 0 0 14px 22px; }
+    .hiba { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h1>Tömbökön belüli tömbök ciklusa</h1>
+  <h2 id="fejlec"></h2>
+  <div id="eredmeny"></div>
+
+  <script>
+    const MMobj = {
+      name: "MM",
+      fullname: "Molnár Márk",
+      age: 21,
+      cars: [
+        { name: "Toyota", models: ["CHR", "Corolla", "Proace"] },
+        { name: "Ford",   models: ["Kuga", "Mondeo", "Mustang"] },
+        { name: "Bmw",    models: ["320", "X3", "X5"] },
+        { name: "Fiat",   models: ["500", "Panda", "Tipo"] }
+      ]
+    };
+
+    document.getElementById("fejlec").textContent = `${MMobj.fullname} (${MMobj.age})`;
+
+    const out = document.getElementById("eredmeny");
+
+    if (!MMobj.cars || !Array.isArray(MMobj.cars) || MMobj.cars.length === 0) {
+      out.innerHTML = `<p class="hiba">Nincsenek autómárkák a 'cars' tömbben.</p>`;
+      console.error("Hiba: MMobj.cars hiányzik vagy üres:", MMobj.cars);
+    } else {
+      for (let i = 0; i < MMobj.cars.length; i++) {
+        const marka = MMobj.cars[i];
+
+        const h3 = document.createElement("h3");
+        h3.textContent = `${marka.name}:`;
+        out.appendChild(h3);
+
+        const ul = document.createElement("ul");
+        for (let j = 0; j < marka.models.length; j++) {
+          const li = document.createElement("li");
+          li.textContent = marka.models[j];
+          ul.appendChild(li);
+        }
+        out.appendChild(ul);
+      }
+    }
+  </script>
+</body>
+</html>

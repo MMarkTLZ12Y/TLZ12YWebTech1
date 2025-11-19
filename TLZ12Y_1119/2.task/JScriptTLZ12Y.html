@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>JScriptTLZ12Y</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { margin-bottom: 10px; }
+        .ora-blokk {
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+        .ora-blokk h2 {
+            margin: 0 0 4px 0;
+            font-size: 1.1rem;
+        }
+        .ora-blokk p {
+            margin: 2px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>TLZ12Y Órarend 2025</h1>
+
+    <button id="betoltGomb">Órarend betöltése (orarendTLZ12Y.json)</button>
+
+    <div id="kimenet"></div>
+
+    <script>
+        const gomb = document.getElementById('betoltGomb');
+        const kimenet = document.getElementById('kimenet');
+
+        gomb.addEventListener('click', function () {
+            // JSON betöltése
+            fetch('orarendTLZ12Y.json')
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Hiba a JSON betöltésekor: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(function (adat) {
+                    kimenet.innerHTML = '';
+
+                    const orak = adat.TLZ12Y_orarend.ora;
+
+                    orak.forEach(function (ora, index) {
+                        const div = document.createElement('div');
+                        div.className = 'ora-blokk';
+
+                        const cim = document.createElement('h2');
+                        cim.textContent = 'Óra ' + (index + 1);
+                        div.appendChild(cim);
+
+                        const targyP = document.createElement('p');
+                        targyP.innerHTML = '<strong>Tárgy:</strong> ' + ora.targy;
+                        div.appendChild(targyP);
+
+                        const napP = document.createElement('p');
+                        napP.innerHTML = '<strong>Nap:</strong> ' + ora.idopont.nap;
+                        div.appendChild(napP);
+
+                        const idopontP = document.createElement('p');
+                        idopontP.innerHTML = '<strong>Időpont:</strong> '
+                            + ora.idopont.tol + ':00 - ' + ora.idopont.ig + ':00';
+                        div.appendChild(idopontP);
+
+                        const helyszinP = document.createElement('p');
+                        helyszinP.innerHTML = '<strong>Helyszín:</strong> ' + ora.helyszin;
+                        div.appendChild(helyszinP);
+
+                        const oktatoP = document.createElement('p');
+                        oktatoP.innerHTML = '<strong>Oktató:</strong> ' + ora.oktato;
+                        div.appendChild(oktatoP);
+
+                        const szakP = document.createElement('p');
+                        szakP.innerHTML = '<strong>Szak:</strong> ' + ora.szak;
+                        div.appendChild(szakP);
+
+                        kimenet.appendChild(div);
+                    });
+                })
+                .catch(function (error) {
+                    kimenet.textContent = 'Hiba: ' + error.message;
+                });
+        });
+    </script>
+
+</body>
+</html>

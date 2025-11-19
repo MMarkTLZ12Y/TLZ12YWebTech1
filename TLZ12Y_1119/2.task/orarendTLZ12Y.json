@@ -1,0 +1,117 @@
+{
+    "TLZ12Y_orarend": {
+        "ora" :[
+            {
+                "targy": "WebTech eloadas",
+                "idopont": {
+                    "nap": "Hetfo",
+                    "tol": 12,
+                    "ig": 14
+                },
+                "helyszin": "5.eloado",
+                "oktato": "Dr. Agárdi Anita",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "WebTech gyakorlat",
+                "idopont": {
+                    "nap": "Szerda",
+                    "tol": 12,
+                    "ig": 14
+                },
+                "helyszin": "In 101",
+                "oktato": "Dr. Bednarik László",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Mesterséges Intelligencia eloadas",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": 10,
+                    "ig": 12
+                },
+                "helyszin": "32. eloado",
+                "oktato": "Fazekas Levente",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Mesterséges Intelligencia gyakorlat",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": 12,
+                    "ig": 14
+                },
+                "helyszin": "32.eloado",
+                "oktato": "Fazekas Levente",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Algoritmusok és vizsgálatuk eloadas",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": 14,
+                    "ig": 16
+                },
+                "helyszin": "30.eloado",
+                "oktato": "Dr. Házy Attila",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Algoritmusok és vizsgálatuk gyakorlat",
+                "idopont": {
+                    "nap": "Kedd",
+                    "tol": 16,
+                    "ig": 18
+                },
+                "helyszin": "30.eloado",
+                "oktato": "Dr. Házy Attila",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Bevezetés a Virtuális Valóságba eloadas",
+                "idopont": {
+                    "nap": "Szerda",
+                    "tol": 8,
+                    "ig": 10
+                },
+                "helyszin": "214-es terem",
+                "oktato": "Dr. Lajos Sándor",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Bevezetés a Virtuális Valóságba gyakorlat",
+                "idopont": {
+                    "nap": "Szerda",
+                    "tol": 10,
+                    "ig": 12
+                },
+                "helyszin": "214-es terem",
+                "oktato": "Dr. Lajos Sándor",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Vállalati információs rendszerek eloadas",
+                "idopont": {
+                    "nap": "Szerda",
+                    "tol": 14,
+                    "ig": 16
+                },
+                "helyszin": "In 103",
+                "oktato": "Dr. Savári Péter",
+                "szak": "ProgTerv"
+            },
+            {
+                "targy": "Vállalati információs rendszerek gyakorlat",
+                "idopont": {
+                    "nap": "Szerda",
+                    "tol": 18,
+                    "ig": 20
+                },
+                "helyszin": "In 103",
+                "oktato": "Dr. Sasvári Péter",
+                "szak": "ProgTerv"
+            }
+        ]
+    }
+
+}
