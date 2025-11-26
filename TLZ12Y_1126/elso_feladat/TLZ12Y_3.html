@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery feladatok</title>
+
+    <!-- jQuery könyvtár -->
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <!-- Saját kód -->
+    <script src="3.js"></script>
+
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { margin-bottom: 15px; }
+        p  { margin-bottom: 10px; }
+        form label { display:block; margin-bottom:8px; }
+        input.urlap-mezo {
+            padding: 4px 6px;
+            border: 1px solid #999;
+        }
+        #gombInfo {
+            display: none;
+            margin-top: 8px;
+            padding: 6px 8px;
+            border: 1px solid #999;
+            background-color: #f5f5f5;
+            width: 260px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="fejlec">jQuery feladatok</h1>
+
+    <p id="p1">
+        A jQuery egy JavaScript programozói könyvtár, amelyet John Resig kezdett fejleszteni.
+        <a href="#" id="p1Link">Kattints ide</a>, és az első bekezdés eltűnik.
+    </p>
+
+    <p id="p2">
+        Elterjedtnek tekinthető, segítségével könnyen bejárható egy HTML oldal DOM-ja.
+        <a href="#" id="p2Link">Kattints ide duplán</a>, és a második bekezdés eltűnik.
+    </p>
+
+    <form id="jelentkezesForm" action="#" method="post">
+        <label>
+            Név:
+            <input type="text" name="nev" class="urlap-mezo">
+        </label>
+
+        <label>
+            E-mail:
+            <input type="email" name="email" class="urlap-mezo">
+        </label>
+
+        <label>
+            Jelszó:
+            <input type="password" name="jelszo" class="urlap-mezo">
+        </label>
+
+        <button type="button" id="jelentkezesGomb">Jelentkezés</button>
+
+        <div id="gombInfo">
+            Ha a <strong>Jelentkezés</strong> gomb fölé viszed az egeret,
+            itt megjelenik ez az információs ablak.
+        </div>
+    </form>
+
+</body>
+</html>
