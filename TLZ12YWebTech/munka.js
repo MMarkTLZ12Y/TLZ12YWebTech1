@@ -1,18 +1,14 @@
-// munka.js
 
 document.addEventListener('DOMContentLoaded', function () {
     initJobCards();
     initLinksToggle();
 });
 
-/**
- * munka_adatok.json beolvasása és kártyák kirajzolása
- */
+
 function initJobCards() {
     var jobGrid = document.getElementById('job-grid');
     if (!jobGrid) return;
 
-    // Alap kiírás, amíg tölt
     jobGrid.innerHTML = '<p class="job-loading">Példák betöltése...</p>';
 
     fetch('munka_adatok.json')
@@ -29,7 +25,6 @@ function initJobCards() {
                 return;
             }
 
-            // ürítjük a "betöltés..." szöveget
             jobGrid.innerHTML = '';
 
             jobs.forEach(function (job) {
@@ -68,9 +63,7 @@ function initJobCards() {
         });
 }
 
-/**
- * Hasznos linkek hamburger (felső jobb sarok)
- */
+
 function initLinksToggle() {
     var toggle = document.querySelector('.links-toggle');
     var panel  = document.querySelector('.links-aside');

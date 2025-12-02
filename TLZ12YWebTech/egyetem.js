@@ -1,14 +1,10 @@
-// egyetem.js
 
-// Amikor betölt az oldal
 document.addEventListener('DOMContentLoaded', function () {
     initLinksToggle();
     initUniTimeline();
 });
 
-/**
- * Hasznos linkek hamburger (felső jobb sarok)
- */
+
 function initLinksToggle() {
     var toggle = document.querySelector('.links-toggle');
     var panel  = document.querySelector('.links-aside');
@@ -21,11 +17,8 @@ function initLinksToggle() {
     });
 }
 
-/**
- * Egyetem oldal – folytonos jQuery animáció a három "év" csíkon
- */
+
 function initUniTimeline() {
-    // biztos, hogy jQuery elérhető legyen
     if (typeof window.jQuery === 'undefined') {
         console.warn('jQuery nem elérhető az egyetem timeline animációhoz.');
         return;
@@ -34,7 +27,6 @@ function initUniTimeline() {
     var $fills = $('.uni-phase-fill');
     if (!$fills.length) return;
 
-    // Egy fázis animálása: 0% → 100%, kicsi villanás, majd megy tovább
     function animatePhase($el) {
         return $el
             .stop(true, true)
@@ -45,7 +37,6 @@ function initUniTimeline() {
             .animate({ opacity: 1 }, 0);
     }
 
-    // Végigmegy a 3 fázison, aztán elölről kezdi
     function loopTimeline() {
         var i = 0;
 
