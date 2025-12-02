@@ -1,188 +1,297 @@
-* {
+/* ===========================
+   ALAP STÍLUSOK
+   =========================== */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+
+html,
+body {
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #020617, #020617 55%, #020617 100%);
+    color: #f9fafb;
+    min-height: 100vh;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ===========================
+   OLDAL KERET (.page, header, main)
+   =========================== */
 
 .page {
-    min-height: 100vh;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 40px 48px;
 }
 
-/* HEADER – középre igazítva */
+@media (max-width: 768px) {
+    .page {
+        padding: 24px 16px 32px;
+    }
+}
 
 header {
-    max-width: 800px;
-    width: 100%;
-    margin-bottom: 25px;
     text-align: center;
 }
 
 header h1 {
-    font-size: clamp(2.4rem, 6vw, 3.4rem);
-    margin-bottom: 8px;
-    color: #f9fafb;
+    margin: 0;
+    font-size: clamp(2.4rem, 3.2vw + 1rem, 3.6rem);
+    font-weight: 800;
+    letter-spacing: 0.03em;
 }
 
 header p {
+    margin: 12px 0 0;
     font-size: 1.05rem;
     color: #cbd5f5;
 }
 
-/* KEZDŐOLDAL 3 OPCIÓVAL */
-
-.options {
-    max-width: 800px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.answers-container {
+    max-width: 100%;
+    margin-top: 32px;
 }
 
+/* ===========================
+   NYITÓ OLDAL – 3 KÜLÖN TÉGLALAP
+   =========================== */
+
+.options-wrapper {
+    margin-top: 32px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 3 külön "pill" téglalap */
 .option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+    display: block;
+    padding: 26px 32px;
+    text-align: center;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
     font-weight: 800;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    padding: 20px 16px;
-    border-radius: 18px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+    color: #f9fafb;
+
+    border-radius: 28px;
+    margin-bottom: 18px;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+
     transition:
         transform 0.15s ease,
-        filter 0.15s ease,
-        opacity 0.15s ease,
-        box-shadow 0.15s ease;
+        box-shadow 0.15s ease,
+        filter 0.15s ease;
 }
 
-.option--munka {
-    background: #f97316;
+/* Színek */
+.option-work {
+    background: linear-gradient(90deg, #f97316, #ea580c);
 }
 
-.option--egyetem {
-    background: #3b82f6;
+.option-uni {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
 }
 
-.option--egyiksem {
-    background: #22c55e;
+.option-none {
+    background: linear-gradient(90deg, #22c55e, #16a34a);
 }
 
 .option:hover {
-    transform: translateY(-2px) scale(1.01);
-    filter: brightness(1.06);
-    opacity: 0.97;
-    box-shadow: 0 16px 32px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+    filter: brightness(1.07);
+    box-shadow: 0 30px 80px rgba(15, 23, 42, 0.95);
 }
 
-/* VÁLASZAIM / TERVEM OLDAL */
+/* ===========================
+   KÖZÖS CÍMEK / SZÖVEGEK
+   =========================== */
 
-.answers-container {
-    max-width: 800px;
-    width: 100%;
-    color: #e5e7eb;
+.form-section-title,
+.answers-container h2 {
+    font-size: 1.4rem;
+    margin: 18px 0 10px;
+}
+
+.answers-container p {
+    font-size: 1rem;
     line-height: 1.6;
-}
-
-.form-section-title {
-    margin-top: 26px;
-    margin-bottom: 8px;
-    font-size: 1.3rem;
     color: #e5e7eb;
 }
+
+/* ===========================
+   ŰRLAP ELEMEK – VÁLASZAIM OLDAL
+   =========================== */
 
 .form-group {
-    margin-bottom: 16px;
+    margin-top: 8px;
+    margin-bottom: 18px;
 }
 
-.form-group label,
-.form-group p {
+/* Egy soros mezők */
+.form-group input[type="text"],
+.form-group input[list] {
     display: block;
-    margin-bottom: 6px;
-    font-size: 0.98rem;
-    color: #d1d5db;
-}
+    width: min(100%, 420px);
+    padding: 12px 16px;
 
-textarea {
-    width: 100%;
-    min-height: 80px;
-    border-radius: 8px;
-    border: 1px solid #1f2937;
+    border-radius: 10px;
+    border: 2px solid rgba(148, 163, 184, 0.5);
     background: #020617;
-    color: #e5e7eb;
-    padding: 10px 12px;
-    font-family: inherit;
-    font-size: 0.95rem;
+    color: #f9fafb;
+
+    font-size: 1rem;
+    line-height: 1.4;
+    outline: none;
+
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+/* Hover / fókusz */
+.form-group input[type="text"]:hover,
+.form-group input[list]:hover,
+.form-group input[type="text"]:focus,
+.form-group input[list]:focus {
+    border-color: #3b82f6;
+    background: #02091e;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Placeholder */
+.form-group input[type="text"]::placeholder,
+.form-group input[list]::placeholder {
+    color: #9ca3af;
+    opacity: 0.85;
+}
+
+/* Textarea */
+.form-group textarea {
+    display: block;
+    width: min(100%, 640px);
+    min-height: 140px;
+    padding: 12px 16px;
+
+    border-radius: 10px;
+    border: 2px solid rgba(148, 163, 184, 0.5);
+    background: #020617;
+    color: #f9fafb;
+
+    font-size: 1rem;
+    line-height: 1.5;
     resize: vertical;
+
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
 }
 
-textarea::placeholder {
-    color: #6b7280;
+.form-group textarea:focus,
+.form-group textarea:hover {
+    border-color: #3b82f6;
+    background: #02091e;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-.radio-label {
+/* Radio / checkbox címkék */
+.radio-label,
+.checkbox-label {
     display: inline-flex;
     align-items: center;
-    margin-right: 14px;
-    font-size: 0.95rem;
-    cursor: pointer;
-}
-
-.radio-label input {
-    margin-right: 6px;
-}
-
-/* PDF gomb */
-
-.pdf-button {
-    margin-top: 10px;
-    padding: 12px 22px;
-    border-radius: 999px;
-    border: none;
-    background: #6366f1;
-    color: #f9fafb;
-    font-weight: 600;
+    gap: 8px;
+    margin-right: 24px;
+    margin-bottom: 8px;
     font-size: 0.98rem;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.radio-label input,
+.checkbox-label input {
+    transform: scale(1.1);
+}
+
+/* Színválasztó */
+.form-group input[type="color"] {
+    width: 70px;
+    height: 40px;
+    border-radius: 999px;
+    border: 2px solid rgba(148, 163, 184, 0.6);
+    background: #020617;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Dátummező */
+.form-group input[type="date"] {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid rgba(148, 163, 184, 0.5);
+    background: #020617;
+    color: #f9fafb;
+    font-size: 0.98rem;
+}
+
+/* ===========================
+   PDF GOMBOK
+   =========================== */
+
+.pdf-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+
+    background: #22c55e;
+    color: #0b1120;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+
+    box-shadow: 0 14px 40px rgba(22, 163, 74, 0.65);
     transition:
         transform 0.15s ease,
-        filter 0.15s ease,
-        box-shadow 0.15s ease;
+        box-shadow 0.15s ease,
+        background 0.15s ease;
 }
 
 .pdf-button:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.08);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.6);
+    background: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px rgba(22, 163, 74, 0.8);
 }
 
 .pdf-help {
-    margin-top: 8px;
+    margin-top: 10px;
     font-size: 0.9rem;
     color: #9ca3af;
 }
 
-/* PRINT KEZELÉS – mi látszódjon PDF-ben */
+/* ===========================
+   PRINT / NEM PRINT
+   =========================== */
 
 .print-only {
     display: none;
-}
-
-.no-print {
-    /* képernyőn látszik, nyomtatáskor elrejtjük */
 }
 
 @media print {
@@ -191,58 +300,161 @@ textarea::placeholder {
         color: #000000;
     }
 
-    .page {
-        min-height: auto;
-        padding: 20px;
-        box-shadow: none;
-    }
-
     .no-print {
         display: none !important;
     }
 
     .print-only {
-        display: block !important;
+        display: block;
     }
 
-    header p {
-        color: #111827;
+    .page {
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
     }
 }
 
-/* Egy soros beviteli mezők (siker_terulet, mai_lepes stb.) */
-.form-group input[type="text"],
-.form-group input[list] {
-    display: block;
-    width: min(100%, 420px);
-    padding: 12px 16px;
+/* ===========================
+   "KÖVETKEZŐ LÉPÉS" BLOKK
+   =========================== */
 
+.next-step {
+    margin-top: 40px;
+    padding: 24px 20px;
+    border-radius: 18px;
+    background: radial-gradient(
+        circle at top left,
+        rgba(59, 130, 246, 0.18),
+        rgba(15, 23, 42, 0.96)
+    );
+    box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+}
+
+.next-step h2 {
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+}
+
+.next-step p {
+    margin-bottom: 16px;
+    color: #e5e7eb;
+}
+
+.next-button {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: #22c55e;
+    color: #0b1120;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 30px rgba(22, 163, 74, 0.55);
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.next-button:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(22, 163, 74, 0.7);
+}
+
+/* ===========================
+   "SAJÁT JAVASLATAIM" BLOKK
+   =========================== */
+
+.recommendations {
+    margin-top: 32px;
+    padding: 24px 20px 28px;
+    border-radius: 18px;
+    background: radial-gradient(
+        circle at top left,
+        rgba(59, 130, 246, 0.16),
+        rgba(15, 23, 42, 0.9)
+    );
+    box-shadow: 0 18px 60px rgba(15, 23, 42, 0.9);
+}
+
+.recommendations h2 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+
+.reco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 8px;
+}
+
+.reco-card {
+    background: rgba(15, 23, 42, 0.92);
+    border-radius: 14px;
+    padding: 16px 16px 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
+
+    /* ANIMÁCIÓ ALAP – áttetsző, helyben; az irányt extra class adja */
+    opacity: 0;
+    transform: translate(0, 0);
+    transition:
+        transform 0.7s ease-out,
+        opacity 0.7s ease-out;
+}
+
+/* Bal fentről beúszó */
+.reco-card.slide-from-left {
+    transform: translate(-60px, -40px);
+}
+
+/* Jobb fentről beúszó */
+.reco-card.slide-from-right {
+    transform: translate(60px, -40px);
+}
+
+/* Amikor jQuery hozzáadja ezt, a kártya a helyére csúszik */
+.reco-card.reco-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.reco-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* 16:9-es fix doboz képnek / videónak */
+.reco-media {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
     border-radius: 10px;
-    border: 2px solid rgba(148, 163, 184, 0.5); /* halvány szürke keret */
-    background: #020617;                        /* sötét háttér, mint az oldal */
-    color: #f9fafb;
+    overflow: hidden;
+    background: #020617;
+    margin-bottom: 10px;
+}
 
+.reco-media img,
+.reco-media video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reco-card p {
+    font-size: 0.95rem;
+    color: #e5e7eb;
+}
+
+.reco-bottom {
+    margin-top: 18px;
     font-size: 1rem;
-    line-height: 1.4;
-    outline: none;
-
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.6); /* finom árnyék */
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-/* Hover/fókusz állapot – kicsit „felgyullad” a mező */
-.form-group input[type="text"]:hover,
-.form-group input[list]:hover,
-.form-group input[type="text"]:focus,
-.form-group input[list]:focus {
-    border-color: #3b82f6; /* kék kiemelés */
-    background: #02091e;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-}
-
-/* Placeholder színe */
-.form-group input[type="text"]::placeholder,
-.form-group input[list]::placeholder {
-    color: #9ca3af;
-    opacity: 0.8;
+    color: #e5e7eb;
 }
