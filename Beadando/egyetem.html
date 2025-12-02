@@ -80,6 +80,43 @@
             </p>
         </section>
 
+<section class="uni-timeline">
+  <h2>Hogyan néz ki egy egyetem folyamata?</h2>
+  <p class="uni-timeline-intro">
+    Három nagy szakasz: elindulsz, belemélyülsz, majd célba érsz. A lenti csík mutatja,
+    hogyan halad végig a „tanulás” az éveken.
+  </p>
+
+  <div class="uni-timeline-track">
+    <div class="uni-phase">
+      <span class="uni-phase-label">1. év – alapok, új közeg</span>
+      <div class="uni-phase-bar">
+        <div class="uni-phase-fill"></div>
+      </div>
+    </div>
+
+    <div class="uni-phase">
+      <span class="uni-phase-label">2. év – mélyebb tantárgyak, projektek</span>
+      <div class="uni-phase-bar">
+        <div class="uni-phase-fill"></div>
+      </div>
+    </div>
+
+    <div class="uni-phase">
+      <span class="uni-phase-label">3. év – szakdolgozat, gyakorlat, diplomázás</span>
+      <div class="uni-phase-bar">
+        <div class="uni-phase-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="uni-timeline-note">
+    A zöld csík végigfut az éveken: <strong>elhatározás → tanulás → célba érés</strong>,
+    aztán újra kezdi. A lényeg, hogy egyszer <em>el kell indulni</em>.
+  </p>
+</section>
+
+
         <!-- ÚJ GRID SZEKCIÓ – KONKRÉT SZAKOK -->
         <section class="degree-grid">
             <h2>Konkrét szakok, amik szóba jöhetnek</h2>
@@ -168,6 +205,41 @@
   })();
 </script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+  $(function () {
+    var $fills = $('.uni-phase-fill');
+
+    if (!$fills.length) return;
+
+    function animatePhase($el) {
+      // szélesség 0 -> 100%, majd halványít, vissza 0-ra
+      return $el
+        .stop(true, true)
+        .css({ width: '0%', opacity: 1 })
+        .animate({ width: '100%' }, 1200)
+        .delay(200)
+        .animate({ opacity: 0.3 }, 250)
+        .animate({ opacity: 1 }, 0);
+    }
+
+    function loopTimeline() {
+      var i = 0;
+
+      function next() {
+        var $current = $fills.eq(i);
+        animatePhase($current).promise().done(function () {
+          i = (i + 1) % $fills.length;
+          next();
+        });
+      }
+
+      next();
+    }
+
+    loopTimeline();
+  });
+</script>
 
 </body>
 </html>
