@@ -9,10 +9,25 @@
 <body>
 
 <div class="page">
+
+    <nav class="main-nav">
+        <a href="index.html">Kezdőlap</a>
+        <a href="munka.html">Munka</a>
+        <a href="egyetem.html">Egyetem</a>
+        <a href="egyiksem.html">Egyik sem</a>
+        <a href="valaszaim.html">Tervem</a>
+    </nav>
+
     <header>
+
+        
+
         <h1>Munka</h1>
         <p>Saját fizu, felelősség, tapasztalat – nézzük meg, mit jelent ez valójában.</p>
     </header>
+
+   
+
 
     <main class="answers-container">
         <section>
@@ -35,6 +50,32 @@
             </p>
         </section>
 
+        <!-- JSON-BÓL BETÖLTÖTT MUNKAÖTLETEK -->
+        <section class="job-section">
+            <h2>Milyen munkákat próbálhatnék ki?</h2>
+            <p class="job-intro">
+                Ezek csak ötletek, hogy lásd, mennyi féle irány létezik. A konkrét lehetőségek mindig attól függnek,
+                hol laksz, milyen ismerőseid vannak, és mit mersz megkeresni. 🙂
+            </p>
+
+            <div id="job-grid" class="job-grid">
+                <!-- Ide kerülnek majd a kártyák JSON-ból -->
+                <p class="job-loading">Példák betöltése...</p>
+            </div>
+        </section>
+
+        <aside class="links-aside">
+    <h2>Hasznos linkek – munka</h2>
+    <ul>
+        <li><a href="https://www.profession.hu" target="_blank" rel="noopener">Profession.hu – álláskereső portál</a></li>
+        <li><a href="https://www.cvonline.hu" target="_blank" rel="noopener">CVOnline – önéletrajz és állások</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn – szakmai kapcsolatépítés</a></li>
+        <li><a href="https://europa.eu/europass/hu" target="_blank" rel="noopener">Europass – önéletrajz sablonok</a></li>
+        <li><a href="https://jobline.hu" target="_blank" rel="noopener">Jobline – pályakezdő állások, cikkek</a></li>
+    </ul>
+</aside>
+
+
         <!-- Átvezető gomb a válaszaim oldalra -->
         <section class="next-step">
             <h2>Megvan az irány?</h2>
@@ -46,7 +87,73 @@
             <a href="index.html" style="color:#93c5fd; text-decoration:none;">← Vissza a választó oldalra</a>
         </p>
     </main>
+
+    <footer class="site-footer">
+        <p>Készítette: Molnár Márk – Neptun: TLZ12Y – Web technológiák 1 projekt</p>
+    </footer>
+
 </div>
+
+<!-- JSON betöltése és kártyák létrehozása -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var jobGrid = document.getElementById('job-grid');
+    if (!jobGrid) return;
+
+    // Alap kiírás, amíg tölt
+    jobGrid.innerHTML = '<p class="job-loading">Példák betöltése...</p>';
+
+    fetch('munka_adatok.json')
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Hálózati hiba: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(function (jobs) {
+            if (!Array.isArray(jobs) || jobs.length === 0) {
+                jobGrid.innerHTML = '<p>Jelenleg nincs megjeleníthető javaslat, de a saját terved így is működik. 🙂</p>';
+                return;
+            }
+
+            jobGrid.innerHTML = ''; // ürítjük a "betöltés..." szöveget
+
+            jobs.forEach(function (job) {
+                var card = document.createElement('article');
+                card.className = 'job-card';
+
+                var title = job.title || 'Ismeretlen munkakör';
+                var type = job.type || '';
+                var hours = job.hours || '';
+                var goodFor = job.goodFor || '';
+                var desc = job.description || '';
+                var pay = job.pay || '';
+
+                var metaText = [];
+                if (type) metaText.push(type);
+                if (hours) metaText.push(hours);
+
+                card.innerHTML = ''
+                    + '<h3>' + title + '</h3>'
+                    + (metaText.length
+                        ? '<p class="job-meta">' + metaText.join(' • ') + '</p>'
+                        : '')
+                    + '<ul>'
+                    + (goodFor ? '<li><strong>Kinek való:</strong> ' + goodFor + '</li>' : '')
+                    + (desc ? '<li>' + desc + '</li>' : '')
+                    + (pay ? '<li><strong>Kb. fizetés:</strong> ' + pay + '</li>' : '')
+                    + '</ul>';
+
+                jobGrid.appendChild(card);
+            });
+        })
+        .catch(function (error) {
+            console.error('Hiba a munka_adatok.json betöltésekor:', error);
+            jobGrid.innerHTML =
+                '<p>Nem sikerült betölteni a példákat, de ettől még a saját terved nyugodtan működhet. 🙂</p>';
+        });
+});
+</script>
 
 </body>
 </html>
