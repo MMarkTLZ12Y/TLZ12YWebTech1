@@ -26,6 +26,44 @@
         <p>Saját fizu, felelősség, tapasztalat – nézzük meg, mit jelent ez valójában.</p>
     </header>
 
+<section class="highlights-grid work-highlights">
+  <article class="highlight-card">
+    <div class="highlight-icon">💼</div>
+    <h2>Első fizetésed</h2>
+    <p>Megkeresed a saját pénzedet, és megtanulod beosztani. Nem zsebpénz, hanem valódi felelősség.</p>
+  </article>
+
+  <article class="highlight-card">
+    <div class="highlight-icon">🧠</div>
+    <h2>Valódi tapasztalat</h2>
+    <p>Megismered, milyen egy munkakörnyezet, csapat, határidők – ezt semmi nem pótolja.</p>
+  </article>
+
+  <article class="highlight-card">
+    <div class="highlight-icon">🧭</div>
+    <h2>Iránytű a jövődre</h2>
+    <p>Rájössz, mi az, amit szeretsz, és mi az, amit nagyon nem – ez segít jó irányba lépni tovább.</p>
+  </article>
+</section>
+
+
+    <button class="links-toggle" type="button" aria-label="Hasznos linkek">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<aside class="links-aside">
+  <h2>Hasznos linkek – munka</h2>
+  <ul>
+    <li><a href="https://www.profession.hu" target="_blank" rel="noopener">Profession.hu – álláskereső portál</a></li>
+    <li><a href="https://www.cvonline.hu" target="_blank" rel="noopener">CVOnline – önéletrajz és állások</a></li>
+    <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn – szakmai kapcsolatépítés</a></li>
+    <li><a href="https://europa.eu/europass/hu" target="_blank" rel="noopener">Europass – önéletrajz sablonok</a></li>
+    <li><a href="https://jobline.hu" target="_blank" rel="noopener">Jobline – pályakezdő állások, cikkek</a></li>
+  </ul>
+</aside>
+
    
 
 
@@ -154,6 +192,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 });
 </script>
+
+<script>
+  (function () {
+    const toggle = document.querySelector('.links-toggle');
+    const panel  = document.querySelector('.links-aside');
+
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function () {
+      panel.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  })();
+</script>
+
 
 </body>
 </html>

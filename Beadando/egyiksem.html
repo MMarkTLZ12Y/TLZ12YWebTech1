@@ -23,6 +23,44 @@
         <p>Nem csak munka és egyetem létezik – nézzük meg az autodidakta, saját utat.</p>
     </header>
 
+    <button class="links-toggle" type="button" aria-label="Hasznos linkek">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<aside class="links-aside">
+  <h2>Hasznos linkek – autodidakta út</h2>
+  <ul>
+    <li>
+      <a href="https://www.freecodecamp.org" target="_blank" rel="noopener">
+        freeCodeCamp – ingyenes programozás tanulás
+      </a>
+    </li>
+    <li>
+      <a href="https://developer.mozilla.org" target="_blank" rel="noopener">
+        MDN Web Docs – webfejlesztés dokumentáció
+      </a>
+    </li>
+    <li>
+      <a href="https://www.w3schools.com" target="_blank" rel="noopener">
+        W3Schools – HTML, CSS, JS alapok
+      </a>
+    </li>
+    <li>
+      <a href="https://www.coursera.org" target="_blank" rel="noopener">
+        Coursera – online kurzusok, egyetemi anyagok
+      </a>
+    </li>
+    <li>
+      <a href="https://chat.openai.com" target="_blank" rel="noopener">
+        ChatGPT – kérdések, magyarázat, ötletelés
+      </a>
+    </li>
+  </ul>
+</aside>
+
+
     <main class="answers-container">
         <section>
             <h2>Mit jelent ez valójában?</h2>
@@ -144,6 +182,19 @@
 </body>
 </html>
 
+<script>
+  (function () {
+    const toggle = document.querySelector('.links-toggle');
+    const panel  = document.querySelector('.links-aside');
+
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function () {
+      panel.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  })();
+</script>
 
 </body>
 </html>

@@ -23,6 +23,44 @@
         <p>Diploma, több tudás, új kapcsolatok – nézzük meg, mit jelent ez neked.</p>
     </header>
 
+    <button class="links-toggle" type="button" aria-label="Hasznos linkek">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<aside class="links-aside">
+  <h2>Hasznos linkek – egyetem</h2>
+  <ul>
+    <li>
+      <a href="https://www.felvi.hu" target="_blank" rel="noopener">
+        felvi.hu – hivatalos felvételi oldal
+      </a>
+    </li>
+    <li>
+      <a href="https://www.uni-miskolc.hu" target="_blank" rel="noopener">
+        Miskolci Egyetem – példa egyetemi oldal
+      </a>
+    </li>
+    <li>
+      <a href="https://diakhitel.hu" target="_blank" rel="noopener">
+        Diákhitel – tanulmányi és életjáradék hitelek
+      </a>
+    </li>
+    <li>
+      <a href="https://www.oktatas.hu" target="_blank" rel="noopener">
+        Oktatas.hu – érettségi, pontszámítás infók
+      </a>
+    </li>
+    <li>
+      <a href="https://www.mateking.hu" target="_blank" rel="noopener">
+        Mateking – matek segítség érettségire
+      </a>
+    </li>
+  </ul>
+</aside>
+
+
     <main class="answers-container">
         <section>
             <h2>Mit adhat az egyetem?</h2>
@@ -115,6 +153,21 @@
     </footer>
 
 </div>
+
+<script>
+  (function () {
+    const toggle = document.querySelector('.links-toggle');
+    const panel  = document.querySelector('.links-aside');
+
+    if (!toggle || !panel) return;
+
+    toggle.addEventListener('click', function () {
+      panel.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  })();
+</script>
+
 
 </body>
 </html>
