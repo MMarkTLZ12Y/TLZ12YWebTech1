@@ -132,7 +132,7 @@ header p {
 }
 
 /* ===========================
-   ŰRLAP ELEMEK – VÁLASZAIM OLDAL
+   ŰRLAP ELEMEK – VÁLASZAIM
    =========================== */
 
 .form-group {
@@ -210,19 +210,17 @@ header p {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
-/* Radio / checkbox címkék */
+/* Radio / checkbox címkék – egymás alatt */
 .radio-label,
-/* Jelölőnégyzetek egymás alatt */
 .checkbox-label {
-    display: flex;        /* ne inline legyen, hanem blokk jellegű */
+    display: flex;
     align-items: center;
     gap: 8px;
-    margin-right: 0;      /* ne tologassa jobbra */
+    margin-right: 0;
     margin-bottom: 8px;
     font-size: 0.98rem;
     cursor: pointer;
 }
-
 
 .radio-label input,
 .checkbox-label input {
@@ -367,7 +365,7 @@ header p {
 }
 
 /* ===========================
-   "SAJÁT JAVASLATAIM" BLOKK
+   "SAJÁT JAVASLATAIM" BLOKK – EGYIK SEM
    =========================== */
 
 .recommendations {
@@ -400,7 +398,6 @@ header p {
     padding: 16px 16px 18px;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.85);
 
-    /* ANIMÁCIÓ ALAP – áttetsző, helyben; az irányt extra class adja */
     opacity: 0;
     transform: translate(0, 0);
     transition:
@@ -408,12 +405,11 @@ header p {
         opacity 0.7s ease-out;
 }
 
-/* Bal fentről beúszó */
+/* Bal / jobb fentről beúszó */
 .reco-card.slide-from-left {
     transform: translate(-60px, -40px);
 }
 
-/* Jobb fentről beúszó */
 .reco-card.slide-from-right {
     transform: translate(60px, -40px);
 }
@@ -461,7 +457,6 @@ header p {
     color: #e5e7eb;
 }
 
-
 /* ===========================
    EGYETEM OLDAL – SZAK GRID
    =========================== */
@@ -482,7 +477,7 @@ header p {
 .degree-grid-inner {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;  /* <-- valódi grid gap (oszlop + sor) */
+    gap: 16px;
 }
 
 .degree-card {
@@ -560,7 +555,7 @@ header p {
 .job-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px; /* itt a grid gap */
+    gap: 16px;
 }
 
 .job-loading {
@@ -604,17 +599,15 @@ header p {
     }
 }
 
-
-/* ===== NAV / MENÜ ===== */
-
-/* ===== NAV / MENÜ – STICKY TOP BAR ===== */
+/* ===========================
+   NAV / MENÜ – STICKY TOP BAR
+   =========================== */
 
 .main-nav {
     position: sticky;
     top: 0;
     z-index: 999;
 
-    /* háttér, hogy „csík” legyen a tetején */
     background: rgba(2, 6, 23, 0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(15, 23, 42, 0.9);
@@ -657,7 +650,9 @@ header p {
     box-shadow: 0 18px 40px rgba(37, 99, 235, 0.8);
 }
 
-/* ===== HASZNOS LINKEK HAMBURGER GOMB ===== */
+/* ===========================
+   HASZNOS LINKEK – HAMBURGER GOMB
+   =========================== */
 
 .links-toggle {
     position: fixed;
@@ -689,7 +684,7 @@ header p {
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Kis animáció, ha nyitva van a panel (X-nek néz ki) */
+/* Kis animáció, ha nyitva van a panel (X-re fordul) */
 .links-toggle.open span:nth-child(1) {
     transform: translateY(4px) rotate(45deg);
 }
@@ -707,8 +702,9 @@ header p {
     }
 }
 
-
-/* ===== FOOTER / LÁBLÉC ===== */
+/* ===========================
+   FOOTER / LÁBLÉC
+   =========================== */
 
 .site-footer {
     margin-top: 48px;
@@ -740,11 +736,10 @@ header p {
     letter-spacing: 0.03em;
 }
 
-/* ===== HASZNOS LINKEK ASIDE – MINDEN ÚT OLDALON ===== */
+/* ===========================
+   HASZNOS LINKEK PANEL – OVERLAY
+   =========================== */
 
-/* ===== HASZNOS LINKEK PANEL – HAMBURGER REL ===== */
-
-/* A panel alapból rejtve, jobb felül, overlay-ként */
 .links-aside {
     position: fixed;
     top: 64px;
@@ -763,13 +758,13 @@ header p {
     border: 1px solid rgba(148, 163, 184, 0.7);
     box-shadow: 0 20px 60px rgba(15, 23, 42, 0.95);
 
-    display: none;              /* <-- alapból NEM látszik */
+    display: none;
     overflow-y: auto;
     z-index: 999;
 }
 
 .links-aside.open {
-    display: block;             /* JS ezt kapcsolja be/ki */
+    display: block;
 }
 
 .links-aside h2 {
@@ -800,7 +795,7 @@ header p {
     text-decoration-color: #fbbf24;
 }
 
-/* Mobilon kicsit beljebb hozzuk és szélesebbre */
+/* Mobilon szélesebb */
 @media (max-width: 768px) {
     .links-aside {
         top: 58px;
@@ -811,9 +806,9 @@ header p {
     }
 }
 
-
-
-/* ===== KIEMELT KÁRTYÁK – MUNKA / EGYETEM ===== */
+/* ===========================
+   KIEMELT KÁRTYÁK – MUNKA / EGYETEM
+   =========================== */
 
 .highlights-grid {
     margin-top: 28px;
@@ -879,12 +874,12 @@ header p {
     color: #e5e7eb;
 }
 
-/* Munka oldal: narancsos kis színcsík a tetején */
+/* Munka oldal: narancs csík a tetején */
 .work-highlights .highlight-card {
     border-top: 3px solid #f97316;
 }
 
-/* Egyetem oldal: kék kis színcsík a tetején */
+/* Egyetem oldal: kék csík a tetején */
 .uni-highlights .highlight-card {
     border-top: 3px solid #3b82f6;
 }
@@ -897,9 +892,8 @@ header p {
     }
 }
 
-
 /* ===========================
-   EGYETEM OLDAL – FOLYAMATOS JQUERY ANIMÁCIÓS SÁV
+   EGYETEM – FOLYAMATOS ANIMÁCIÓS SÁV
    =========================== */
 
 .uni-timeline {
@@ -952,7 +946,6 @@ header p {
     background: linear-gradient(90deg, #22c55e, #4ade80);
 }
 
-/* Kis megjegyzés a sáv alatt */
 .uni-timeline-note {
     margin-top: 14px;
     font-size: 0.9rem;
@@ -965,10 +958,12 @@ header p {
     }
 }
 
+/* ===========================
+   HIBASZÖVEG – VÁLASZAIM
+   =========================== */
 
-.form-error {
-    color: #fecaca;            /* halvány piros */
-    margin-bottom: 8px;
-    font-size: 0.95rem;
+.answers-container .form-error {
+    color: #ef4444;      /* piros */
     font-weight: 600;
+    margin-bottom: 10px;
 }

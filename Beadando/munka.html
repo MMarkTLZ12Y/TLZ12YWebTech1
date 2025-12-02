@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Munka – Merre tovább?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="page">
 
+    <!-- Felső közös menü -->
     <nav class="main-nav">
         <a href="index.html">Kezdőlap</a>
         <a href="munka.html">Munka</a>
@@ -18,56 +20,53 @@
         <a href="valaszaim.html">Tervem</a>
     </nav>
 
+    <!-- Hasznos linkek hamburgere – minden munka oldalon -->
+    <button class="links-toggle" type="button" aria-label="Hasznos linkek">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Hasznos linkek panel (overlay) – egyszer, nem duplán -->
+    <aside class="links-aside">
+        <h2>Hasznos linkek – munka</h2>
+        <ul>
+            <li><a href="https://www.profession.hu" target="_blank" rel="noopener">Profession.hu – álláskereső portál</a></li>
+            <li><a href="https://www.cvonline.hu" target="_blank" rel="noopener">CVOnline – önéletrajz és állások</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn – szakmai kapcsolatépítés</a></li>
+            <li><a href="https://europa.eu/europass/hu" target="_blank" rel="noopener">Europass – önéletrajz sablonok</a></li>
+            <li><a href="https://jobline.hu" target="_blank" rel="noopener">Jobline – pályakezdő állások, cikkek</a></li>
+        </ul>
+    </aside>
+
     <header>
-
-        
-
         <h1>Munka</h1>
         <p>Saját fizu, felelősség, tapasztalat – nézzük meg, mit jelent ez valójában.</p>
     </header>
 
-<section class="highlights-grid work-highlights">
-  <article class="highlight-card">
-    <div class="highlight-icon">💼</div>
-    <h2>Első fizetésed</h2>
-    <p>Megkeresed a saját pénzedet, és megtanulod beosztani. Nem zsebpénz, hanem valódi felelősség.</p>
-  </article>
-
-  <article class="highlight-card">
-    <div class="highlight-icon">🧠</div>
-    <h2>Valódi tapasztalat</h2>
-    <p>Megismered, milyen egy munkakörnyezet, csapat, határidők – ezt semmi nem pótolja.</p>
-  </article>
-
-  <article class="highlight-card">
-    <div class="highlight-icon">🧭</div>
-    <h2>Iránytű a jövődre</h2>
-    <p>Rájössz, mi az, amit szeretsz, és mi az, amit nagyon nem – ez segít jó irányba lépni tovább.</p>
-  </article>
-</section>
-
-
-    <button class="links-toggle" type="button" aria-label="Hasznos linkek">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-
-<aside class="links-aside">
-  <h2>Hasznos linkek – munka</h2>
-  <ul>
-    <li><a href="https://www.profession.hu" target="_blank" rel="noopener">Profession.hu – álláskereső portál</a></li>
-    <li><a href="https://www.cvonline.hu" target="_blank" rel="noopener">CVOnline – önéletrajz és állások</a></li>
-    <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn – szakmai kapcsolatépítés</a></li>
-    <li><a href="https://europa.eu/europass/hu" target="_blank" rel="noopener">Europass – önéletrajz sablonok</a></li>
-    <li><a href="https://jobline.hu" target="_blank" rel="noopener">Jobline – pályakezdő állások, cikkek</a></li>
-  </ul>
-</aside>
-
-   
-
-
     <main class="answers-container">
+
+        <!-- 3 kiemelt kártya a munka előnyeiről -->
+        <section class="highlights-grid work-highlights">
+            <article class="highlight-card">
+                <div class="highlight-icon">💼</div>
+                <h2>Első fizetésed</h2>
+                <p>Megkeresed a saját pénzedet, és megtanulod beosztani. Nem zsebpénz, hanem valódi felelősség.</p>
+            </article>
+
+            <article class="highlight-card">
+                <div class="highlight-icon">🧠</div>
+                <h2>Valódi tapasztalat</h2>
+                <p>Megismered, milyen egy munkakörnyezet, csapat, határidők – ezt semmi nem pótolja.</p>
+            </article>
+
+            <article class="highlight-card">
+                <div class="highlight-icon">🧭</div>
+                <h2>Iránytű a jövődre</h2>
+                <p>Rájössz, mi az, amit szeretsz, és mi az, amit nagyon nem – ez segít jó irányba lépni tovább.</p>
+            </article>
+        </section>
+
         <section>
             <h2>Mit adhat a munka?</h2>
             <p>
@@ -102,18 +101,6 @@
             </div>
         </section>
 
-        <aside class="links-aside">
-    <h2>Hasznos linkek – munka</h2>
-    <ul>
-        <li><a href="https://www.profession.hu" target="_blank" rel="noopener">Profession.hu – álláskereső portál</a></li>
-        <li><a href="https://www.cvonline.hu" target="_blank" rel="noopener">CVOnline – önéletrajz és állások</a></li>
-        <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn – szakmai kapcsolatépítés</a></li>
-        <li><a href="https://europa.eu/europass/hu" target="_blank" rel="noopener">Europass – önéletrajz sablonok</a></li>
-        <li><a href="https://jobline.hu" target="_blank" rel="noopener">Jobline – pályakezdő állások, cikkek</a></li>
-    </ul>
-</aside>
-
-
         <!-- Átvezető gomb a válaszaim oldalra -->
         <section class="next-step">
             <h2>Megvan az irány?</h2>
@@ -132,81 +119,8 @@
 
 </div>
 
-<!-- JSON betöltése és kártyák létrehozása -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    var jobGrid = document.getElementById('job-grid');
-    if (!jobGrid) return;
-
-    // Alap kiírás, amíg tölt
-    jobGrid.innerHTML = '<p class="job-loading">Példák betöltése...</p>';
-
-    fetch('munka_adatok.json')
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error('Hálózati hiba: ' + response.status);
-            }
-            return response.json();
-        })
-        .then(function (jobs) {
-            if (!Array.isArray(jobs) || jobs.length === 0) {
-                jobGrid.innerHTML = '<p>Jelenleg nincs megjeleníthető javaslat, de a saját terved így is működik. 🙂</p>';
-                return;
-            }
-
-            jobGrid.innerHTML = ''; // ürítjük a "betöltés..." szöveget
-
-            jobs.forEach(function (job) {
-                var card = document.createElement('article');
-                card.className = 'job-card';
-
-                var title = job.title || 'Ismeretlen munkakör';
-                var type = job.type || '';
-                var hours = job.hours || '';
-                var goodFor = job.goodFor || '';
-                var desc = job.description || '';
-                var pay = job.pay || '';
-
-                var metaText = [];
-                if (type) metaText.push(type);
-                if (hours) metaText.push(hours);
-
-                card.innerHTML = ''
-                    + '<h3>' + title + '</h3>'
-                    + (metaText.length
-                        ? '<p class="job-meta">' + metaText.join(' • ') + '</p>'
-                        : '')
-                    + '<ul>'
-                    + (goodFor ? '<li><strong>Kinek való:</strong> ' + goodFor + '</li>' : '')
-                    + (desc ? '<li>' + desc + '</li>' : '')
-                    + (pay ? '<li><strong>Kb. fizetés:</strong> ' + pay + '</li>' : '')
-                    + '</ul>';
-
-                jobGrid.appendChild(card);
-            });
-        })
-        .catch(function (error) {
-            console.error('Hiba a munka_adatok.json betöltésekor:', error);
-            jobGrid.innerHTML =
-                '<p>Nem sikerült betölteni a példákat, de ettől még a saját terved nyugodtan működhet. 🙂</p>';
-        });
-});
-</script>
-
-<script>
-  (function () {
-    const toggle = document.querySelector('.links-toggle');
-    const panel  = document.querySelector('.links-aside');
-
-    if (!toggle || !panel) return;
-
-    toggle.addEventListener('click', function () {
-      panel.classList.toggle('open');
-      toggle.classList.toggle('open');
-    });
-  })();
-</script>
-
+<!-- Külső JS fájl a munka oldalhoz -->
+<script src="munka.js"></script>
 
 </body>
 </html>

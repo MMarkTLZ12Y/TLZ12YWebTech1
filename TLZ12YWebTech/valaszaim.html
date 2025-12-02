@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Válaszaim és tervem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- jsPDF CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="page">
+
+    <nav class="main-nav">
+        <a href="index.html">Kezdőlap</a>
+        <a href="munka.html">Munka</a>
+        <a href="egyetem.html">Egyetem</a>
+        <a href="egyiksem.html">Egyik sem</a>
+        <a href="valaszaim.html">Tervem</a>
+    </nav>
+
+    <header>
+        <h1>Válaszaim és tervem</h1>
+        <p>Itt leírod, melyik utat választod, mit fogsz tenni, és mikor kezded el. A végén letöltheted PDF-ben.</p>
+    </header>
+
+    <main class="answers-container">
+
+        <!-- 1. kérdés: munka / egyetem / egyik sem -->
+        <section class="no-print">
+            <h2 class="form-section-title">1. Melyik utat választom most?</h2>
+
+            <div class="form-group">
+                <label class="radio-label">
+                    <input type="radio" name="valasztott_ut" value="Munka">
+                    Munka
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="valasztott_ut" value="Egyetem">
+                    Egyetem
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="valasztott_ut" value="Egyik sem (otthoni tanulás / időt adok magamnak)">
+                    Egyik sem
+                </label>
+            </div>
+        </section>
+
+        <!-- 2. kérdés: terület – datalist -->
+        <section class="no-print">
+            <h2 class="form-section-title">2. Milyen területen szeretnék a leginkább sikeres lenni?</h2>
+
+            <div class="form-group">
+                <input id="siker_terulet" list="siker-terulet-list" placeholder="pl. programozás, grafika">
+                <datalist id="siker-terulet-list">
+                    <option value="Programozás / IT"></option>
+                    <option value="Grafika / design"></option>
+                    <option value="Zene / hangtechnika"></option>
+                    <option value="Videózás / YouTube"></option>
+                    <option value="Vállalkozás"></option>
+                    <option value="Még fogalmam sincs, de nagyot akarok menni"></option>
+                </datalist>
+            </div>
+        </section>
+
+        <!-- 3. kérdés: lépések – textarea -->
+        <section class="no-print">
+            <h2 class="form-section-title">3. Ezeket a lépéseket fogom megtenni, hogy sikeres legyek.</h2>
+
+            <div class="form-group">
+                <textarea id="lepesek" placeholder="Írd le konkrétan: mit fogsz csinálni? (pl. elküldök egy önéletrajzot, végignézek egy leckét, felhívok valakit...)"></textarea>
+            </div>
+        </section>
+
+        <!-- 4. kérdés: egy soros input -->
+        <section class="no-print">
+            <h2 class="form-section-title">4. Ma ezt az egy dolgot biztosan megteszem:</h2>
+
+            <div class="form-group">
+                <input type="text" id="mai_lepes" placeholder="pl. elküldök egy önéletrajzot / végignézek egy leckét">
+            </div>
+        </section>
+
+        <!-- 5. kérdés: mikor kezdem el – rádiógombok -->
+        <section class="no-print">
+            <h2 class="form-section-title">5. Mikor fogom elkezdeni?</h2>
+
+            <div class="form-group">
+                <p>Válasz: csak az első opció lesz valóban választható. 😉</p>
+
+                <label class="radio-label">
+                    <input type="radio" name="kezdes" value="Ma" checked>
+                    Ma
+                </label>
+
+                <label class="radio-label" style="opacity: 0.5;">
+                    <input type="radio" name="kezdes" value="Majd holnap" disabled>
+                    Majd holnap
+                </label>
+
+                <label class="radio-label" style="opacity: 0.5;">
+                    <input type="radio" name="kezdes" value="Majd később" disabled>
+                    Majd később
+                </label>
+
+                <label class="radio-label" style="opacity: 0.5;">
+                    <input type="radio" name="kezdes" value="Túl fáradt vagyok 😴" disabled>
+                    Túl fáradt vagyok 😴
+                </label>
+            </div>
+        </section>
+
+        <!-- 6. kérdés: fogadalmak – checkboxok -->
+        <section class="no-print">
+            <h2 class="form-section-title">6. Ezt ma beikszeltem magamnak:</h2>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="fog1">
+                    Vállalom, hogy nem halogatok feleslegesen.
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="fog2">
+                    Elfogadom, hogy a döntéseimért én vagyok a felelős.
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="fog3">
+                    Legalább egy embert megkérek, hogy néha rákérdezzen, haladok-e.
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="fog4">
+                    Kijelentem, hogy nem csak azért kelek fel, hogy tovább aludhassak. 😴
+                </label>
+            </div>
+        </section>
+
+        <!-- 7. színválasztó -->
+        <section class="no-print">
+            <h2 class="form-section-title">7. Milyen színben látom most a jövőmet?</h2>
+
+            <div class="form-group">
+                <p>A választott színű keret fog megjelenni a profilképed körül a PDF-ben.</p>
+                <input type="color" id="jovo_szin" value="#ff8800">
+            </div>
+        </section>
+
+        <!-- 8. dátumválasztó (űrlap-feladat miatt, PDF-ben már nem használjuk külön) -->
+        <section class="no-print">
+            <h2 class="form-section-title">8. Eddig a napig szeretném a célom elérni:</h2>
+
+            <div class="form-group">
+                <input type="date" id="szerzodes_datum">
+            </div>
+        </section>
+
+        <!-- Gombok -->
+        <section class="no-print" style="margin-top: 20px;">
+            <p id="formError" class="form-error"></p>
+
+            <button type="button" id="pdf-button" class="pdf-button">
+                Válaszaim letöltése PDF-ben
+            </button>
+
+            <button type="button" id="clear-answers" class="pdf-button" style="margin-left:10px;background:#4b5563;">
+                Válaszok törlése
+            </button>
+
+            <p class="pdf-help">
+                A gomb egy PDF fájlt hoz létre a válaszaidból (profilképpel együtt), és letölti a gépedre.
+            </p>
+
+            <p style="margin-top: 24px;">
+                <a href="index.html" style="color:#93c5fd; text-decoration:none;">
+                    ← Vissza a választó oldalra
+                </a>
+            </p>
+        </section>
+
+        <section id="print-summary" class="print-only"></section>
+
+    </main>
+</div>
+
+<script>
+    // profilkép
+    let profileImageDataUrl = null;
+    let profileImageRatio = 1; // height / width
+
+    // aláírás kép
+    let signatureImageDataUrl = null;
+    let signatureImageRatio = 1;
+
+    // hex -> RGB segédfüggvény
+    function hexToRgb(hex) {
+        if (!hex) return null;
+        hex = hex.replace('#', '');
+        if (hex.length === 3) {
+            hex = hex.split('').map(c => c + c).join('');
+        }
+        if (hex.length !== 6) return null;
+        const num = parseInt(hex, 16);
+        return {
+            r: (num >> 16) & 255,
+            g: (num >> 8) & 255,
+            b: num & 255
+        };
+    }
+
+    // ő / Ő -> ö / Ö
+    function fixHungarian(text) {
+        if (!text) return text;
+        return text.replace(/ő/g, 'ö').replace(/Ő/g, 'Ö');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // PROFILKÉP ELŐTÖLTÉSE
+        const imgProfile = new Image();
+        imgProfile.src = 'kepek/levi.jpg'; // Levi arcképe
+        imgProfile.onload = function () {
+            const canvas = document.createElement('canvas');
+            canvas.width = imgProfile.naturalWidth;
+            canvas.height = imgProfile.naturalHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(imgProfile, 0, 0);
+            profileImageDataUrl = canvas.toDataURL('image/jpeg');
+            profileImageRatio = imgProfile.naturalHeight / imgProfile.naturalWidth;
+        };
+
+        // ALÁÍRÁS KÉP ELŐTÖLTÉSE
+        const imgSign = new Image();
+        imgSign.src = 'kepek/alairas.png'; // Levi aláírása
+        imgSign.onload = function () {
+            const canvas = document.createElement('canvas');
+            canvas.width = imgSign.naturalWidth;
+            canvas.height = imgSign.naturalHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(imgSign, 0, 0);
+            signatureImageDataUrl = canvas.toDataURL('image/png');
+            signatureImageRatio = imgSign.naturalHeight / imgSign.naturalWidth;
+        };
+
+        // dátum input alapérték: mai nap (űrlap miatt)
+        const dateInput = document.getElementById('szerzodes_datum');
+        if (dateInput && !dateInput.value) {
+            const d = new Date();
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            dateInput.value = y + '-' + m + '-' + day;
+        }
+
+        function get(id) {
+            var el = document.getElementById(id);
+            return el ? el.value : '';
+        }
+
+        // =========================
+        // PDF GOMB – jQuery + VALIDÁLÁS
+        // =========================
+        $('#pdf-button').on('click', function (e) {
+            // hibaüzenet törlése
+            $('#formError').text('');
+
+            let missing = null;
+
+            // 1. kérdés – út választása
+            if (!$('input[name="valasztott_ut"]:checked').length) {
+                missing = 1;
+            }
+
+            // 2. kérdés – terület
+            if (!missing) {
+                const v2 = $('#siker_terulet').val().trim();
+                if (!v2) missing = 2;
+            }
+
+            // 3. kérdés – lépések
+            if (!missing) {
+                const v3 = $('#lepesek').val().trim();
+                if (!v3) missing = 3;
+            }
+
+            // 4. kérdés – mai egy dolog
+            if (!missing) {
+                const v4 = $('#mai_lepes').val().trim();
+                if (!v4) missing = 4;
+            }
+
+            // 6. kérdés – checkboxok közül legalább egy
+            if (!missing) {
+                const anyChecked =
+                    $('#fog1').prop('checked') ||
+                    $('#fog2').prop('checked') ||
+                    $('#fog3').prop('checked') ||
+                    $('#fog4').prop('checked');
+                if (!anyChecked) missing = 6;
+            }
+
+            if (missing) {
+                e.preventDefault();
+                $('#formError').text(missing + '. kérdés megválaszolása kötelező.');
+                $('html, body').animate({
+                    scrollTop: $('#formError').offset().top - 120
+                }, 400);
+                return; // NINCS PDF létrehozás
+            }
+
+            // =============================
+            // INNEN JÖN A PDF LÉTREHOZÁSA
+            // =============================
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: 'p',
+                unit: 'mm',
+                format: 'a4'
+            });
+
+            // alap betűtípus: times (Times New Roman)
+            doc.setFont('times', 'normal');
+
+            const pageWidth  = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            let y = 20;
+
+            const chosenColor = document.getElementById('jovo_szin') ? document.getElementById('jovo_szin').value : '#000000';
+            const rgbColor = hexToRgb(chosenColor);
+
+            // --- KÉP + NÉV + SZLOGEN KÖZÉPEN FELÜL + SZÍNES KERET ---
+            if (profileImageDataUrl) {
+                const imgWidth = 60; // nagyobb kép
+                const imgHeight = imgWidth * profileImageRatio;
+                const x = (pageWidth - imgWidth) / 2;
+                const topY = 15;
+
+                // keret
+                if (rgbColor) {
+                    doc.setDrawColor(rgbColor.r, rgbColor.g, rgbColor.b);
+                    doc.setLineWidth(2.5);
+                    doc.rect(x - 4, topY - 4, imgWidth + 8, imgHeight + 8);
+                }
+
+                // kép
+                doc.addImage(profileImageDataUrl, 'JPEG', x, topY, imgWidth, imgHeight);
+
+                // név + szlogen (lejjebb, hogy ne érjen a kerethez)
+                const nameY = topY + imgHeight + 16;
+                const taglineY = nameY + 8;
+
+                doc.setFont('times', 'bold');
+                doc.setFontSize(18);
+                doc.text(fixHungarian('Maros Levente'), pageWidth / 2, nameY, { align: 'center' });
+
+                doc.setFont('times', 'normal');
+                doc.setFontSize(14);
+                doc.text(fixHungarian('sikerének titkai'), pageWidth / 2, taglineY, { align: 'center' });
+
+                y = taglineY + 16;
+            } else {
+                doc.setFont('times', 'bold');
+                doc.setFontSize(18);
+                doc.text(fixHungarian('Maros Levente'), pageWidth / 2, 30, { align: 'center' });
+                doc.setFont('times', 'normal');
+                doc.setFontSize(14);
+                doc.text(fixHungarian('sikerének titkai'), pageWidth / 2, 40, { align: 'center' });
+                y = 56;
+            }
+
+            // --- 1. OLDAL SZÖVEGES RÉSZ (egy összefüggő elbeszélés) ---
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+
+            const dateText = `${year}.${month}.${day}.`;
+            const timeText = `${hours}:${minutes}`;
+
+            const selectedPath = document.querySelector('input[name="valasztott_ut"]:checked');
+            let pathPhrase = 'egy saját utat járni';
+            if (selectedPath) {
+                const v = selectedPath.value || '';
+                if (v.startsWith('Munka')) {
+                    pathPhrase = 'munkába állni';
+                } else if (v.startsWith('Egyetem')) {
+                    pathPhrase = 'egyetemre menni';
+                } else {
+                    pathPhrase = 'autodidakta módon fejleszteni magam';
+                }
+            }
+
+            let sikerTerulet = get('siker_terulet').trim();
+            let sikerResz = '';
+            if (sikerTerulet) {
+                sikerResz = `, különösen a(z) ${sikerTerulet} területén`;
+            }
+
+            const lepesekText = get('lepesek').trim();
+            const maiLepesText = get('mai_lepes').trim();
+
+            const paragraph1 =
+                `Én, Maros Levente, ${dateText} ${timeText}-kor a mai napon azt választottam, ` +
+                `hogy szeretnék ${pathPhrase}${sikerResz}.`;
+
+            function writeParagraph(text, fontSize) {
+                if (!text || !text.trim()) return;
+                doc.setFont('times', 'normal');
+                doc.setFontSize(fontSize);
+                const maxWidth = pageWidth - 40; // 20-20 mm margó
+                const lines = doc.splitTextToSize(fixHungarian(text), maxWidth);
+                lines.forEach(line => {
+                    doc.text(line, 20, y);
+                    y += fontSize * 0.45 + 3; // kb. 6–7 mm sor
+                });
+                y += 4;
+            }
+
+            // 1. bekezdés
+            writeParagraph(paragraph1, 13);
+
+            // 2. bekezdés: lépések
+            if (lepesekText) {
+                const intro =
+                    'Azt írtam fel magamnak ezen a napon, ebben az órában, hogy ezeket fogom megtenni a siker érdekében:';
+                writeParagraph(intro, 13);
+
+                const stepsLines = lepesekText.split(/\r?\n/).filter(l => l.trim() !== '');
+                doc.setFont('times', 'normal');
+                doc.setFontSize(12);
+                const maxWidth = pageWidth - 46;
+
+                stepsLines.forEach(line => {
+                    const bullet = '- ' + line.trim();
+                    const blines = doc.splitTextToSize(fixHungarian(bullet), maxWidth);
+                    blines.forEach(bline => {
+                        doc.text(bline, 26, y);
+                        y += 6;
+                    });
+                });
+
+                y += 6;
+            }
+
+            // 3. bekezdés: mai egy dolog
+            if (maiLepesText) {
+                const paragraph3 =
+                    `Ma ezt az egy dolgot biztosan megteszem: ${maiLepesText}.`;
+                writeParagraph(paragraph3, 13);
+            }
+
+            // --- ALÁÍRÁS BLOKK AZ 1. OLDAL ALJÁN, KÖZÉPEN ---
+            doc.setPage(1); // biztosan az első oldalon rajzoljuk
+
+            const bottomMargin = 22;
+            const labelText = 'Maros Levente, a legsikeresebb ember aláírása';
+
+            if (signatureImageDataUrl) {
+                const sigWidth  = 80;  // nagyobb aláírás
+                const sigHeight = sigWidth * signatureImageRatio;
+                const centerX = pageWidth / 2;
+
+                const bottomTextY = pageHeight - bottomMargin;
+
+                const sigY = bottomTextY - 8 - sigHeight;
+                const topTextY = sigY - 8;
+
+                // "A csúcson tali." a kép fölött
+                doc.setFont('times', 'bold');
+                doc.setFontSize(13);
+                doc.text(fixHungarian('A csúcson tali.'), centerX, topTextY, { align: 'center' });
+
+                // aláírás kép
+                const sigX = centerX - sigWidth / 2;
+                doc.addImage(signatureImageDataUrl, 'PNG', sigX, sigY, sigWidth, sigHeight);
+
+                // felirat a kép alatt
+                doc.setFont('times', 'normal');
+                doc.setFontSize(12);
+                doc.text(fixHungarian(labelText), centerX, bottomTextY, { align: 'center' });
+            } else {
+                // ha nincs kép, legalább a szövegek
+                doc.setFont('times', 'bold');
+                doc.setFontSize(13);
+                doc.text(fixHungarian('A csúcson tali.'), pageWidth / 2, pageHeight - 26, { align: 'center' });
+
+                doc.setFont('times', 'normal');
+                doc.setFontSize(12);
+                doc.text(fixHungarian(labelText), pageWidth / 2, pageHeight - 14, { align: 'center' });
+            }
+
+            // --- 2. OLDAL: csak UTÓIRAT ---
+            doc.addPage();
+            let y2 = 35;
+            const maxWidth2 = pageWidth - 40;
+
+            doc.setFont('times', 'bold');
+            doc.setFontSize(18);
+            doc.text(fixHungarian('Utóirat:'), 20, y2);
+            y2 += 14;
+
+            doc.setFont('times', 'normal');
+            doc.setFontSize(13);
+
+            function writeParagraphPage2(text) {
+                if (!text || !text.trim()) return;
+                const lines = doc.splitTextToSize(fixHungarian(text), maxWidth2);
+                lines.forEach(line => {
+                    doc.text(line, 20, y2);
+                    y2 += 7;
+                });
+                y2 += 5;
+            }
+
+            doc.text(fixHungarian('Kedves Levente,'), 20, y2);
+            y2 += 10;
+
+            const para1 =
+                'Remélem, hogy ezzel mosolyt csaltam az arcodra. Tudom, hogy sokan nyomnak ezzel Téged és én ezt nem azzal a szándékkal készítettem, hanem, mint az sógorom, fontos vagy számomra és nagyon értékes vagy és tele vagy képességgel és tehetséggel és mi hiszünk benned.';
+            writeParagraphPage2(para1);
+
+            const para2 =
+                'Szeretnék nagyon boldog, áldott és valódi sikerekben gazdag karácsonyt és újévet kívánni számodra ezzel.';
+            writeParagraphPage2(para2);
+
+            const blessing1 =
+                'Áldjon meg téged az Úr, és őrizzen meg téged! - 4 Mózes 6:24';
+            writeParagraphPage2(blessing1);
+
+            const blessing2 =
+                '„Bölcsé teszlek és megtanítalak téged az útra, amelyen járj; szemeimmel tanácsollak téged.” - Zsoltárok 32:8';
+            writeParagraphPage2(blessing2);
+
+            doc.text(fixHungarian('Szeretettel,'), 20, y2 + 2);
+            y2 += 10;
+            doc.text(fixHungarian('Márk Sógorod'), 20, y2 + 2);
+
+            // --- LETÖLTÉS ---
+            doc.save('valaszaim-maros-levente.pdf');
+        });
+
+        // --- VÁLASZOK TÖRLÉSE GOMB ---
+        const clearBtn = document.getElementById('clear-answers');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function () {
+                // egy soros mezők
+                const sikerTer = document.getElementById('siker_terulet');
+                if (sikerTer) sikerTer.value = '';
+
+                const maiLepesInput = document.getElementById('mai_lepes');
+                if (maiLepesInput) maiLepesInput.value = '';
+
+                // textarea
+                const lepesek = document.getElementById('lepesek');
+                if (lepesek) lepesek.value = '';
+
+                // útválasztó rádiók – mind kikapcsolva
+                document.querySelectorAll('input[name="valasztott_ut"]').forEach(r => r.checked = false);
+
+                // "Mikor kezdem" rádiók – vissza Ma értékre
+                const kezdesMa = document.querySelector('input[name="kezdes"][value="Ma"]');
+                if (kezdesMa) kezdesMa.checked = true;
+
+                // jelölőnégyzetek
+                ['fog1', 'fog2', 'fog3', 'fog4'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.checked = false;
+                });
+
+                // színválasztó vissza alapértékre
+                const colorInput = document.getElementById('jovo_szin');
+                if (colorInput) colorInput.value = '#ff8800';
+
+                // dátum vissza a mai napra (űrlap miatt)
+                if (dateInput) {
+                    const d = new Date();
+                    const y = d.getFullYear();
+                    const m = String(d.getMonth() + 1).padStart(2, '0');
+                    const day = String(d.getDate()).padStart(2, '0');
+                    dateInput.value = `${y}-${m}-${day}`;
+                }
+
+                // hibaüzenet törlése
+                $('#formError').text('');
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

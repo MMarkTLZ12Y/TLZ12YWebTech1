@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Munka – Merre tovább?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <!-- Felső közös menü -->
+    <nav class="main-nav">
+        <a href="index.html">Kezdőlap</a>
+        <a href="munka.html">Munka</a>
+        <a href="egyetem.html">Egyetem</a>
+        <a href="egyiksem.html">Egyik sem</a>
+        <a href="valaszaim.html">Tervem</a>
+    </nav>
+
+    <!-- Hasznos linkek hamburgere – minden munka oldalon -->
+    <button class="links-toggle" type="button" aria-label="Hasznos linkek">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Hasznos linkek panel (overlay) – egyszer, nem duplán -->
+    <aside class="links-aside">
+        <h2>Hasznos linkek – munka</h2>
+        <ul>
+            <li><a href="https://www.profession.hu" target="_blank" rel="noopener">Profession.hu – álláskereső portál</a></li>
+            <li><a href="https://www.cvonline.hu" target="_blank" rel="noopener">CVOnline – önéletrajz és állások</a></li>
+            <li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn – szakmai kapcsolatépítés</a></li>
+            <li><a href="https://europa.eu/europass/hu" target="_blank" rel="noopener">Europass – önéletrajz sablonok</a></li>
+            <li><a href="https://jobline.hu" target="_blank" rel="noopener">Jobline – pályakezdő állások, cikkek</a></li>
+        </ul>
+    </aside>
+
+    <header>
+        <h1>Munka</h1>
+        <p>Saját fizu, felelősség, tapasztalat – nézzük meg, mit jelent ez valójában.</p>
+    </header>
+
+    <main class="answers-container">
+
+        <!-- 3 kiemelt kártya a munka előnyeiről -->
+        <section class="highlights-grid work-highlights">
+            <article class="highlight-card">
+                <div class="highlight-icon">💼</div>
+                <h2>Első fizetésed</h2>
+                <p>Megkeresed a saját pénzedet, és megtanulod beosztani. Nem zsebpénz, hanem valódi felelősség.</p>
+            </article>
+
+            <article class="highlight-card">
+                <div class="highlight-icon">🧠</div>
+                <h2>Valódi tapasztalat</h2>
+                <p>Megismered, milyen egy munkakörnyezet, csapat, határidők – ezt semmi nem pótolja.</p>
+            </article>
+
+            <article class="highlight-card">
+                <div class="highlight-icon">🧭</div>
+                <h2>Iránytű a jövődre</h2>
+                <p>Rájössz, mi az, amit szeretsz, és mi az, amit nagyon nem – ez segít jó irányba lépni tovább.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Mit adhat a munka?</h2>
+            <p>
+                Gyakorlatban tanulsz, valódi projekteken dolgozol, pénzt keresel, és közben rájössz,
+                hogy mi megy neked igazán. A felelősség nagyobb, de a szabadságod is.
+            </p>
+            <p>
+                Lehet, hogy nem az első munkahely lesz az álom, de minden tapasztalat közelebb visz ahhoz,
+                hogy tudd: miben vagy jó, mit szeretsz, és mit nem.
+            </p>
+        </section>
+
+        <section>
+            <h2>Mikor jó választás?</h2>
+            <p>
+                Ha szeretnél gyorsan „beleállni” az életbe, pénzt keresni, közben tanulni,
+                és inkább gyakorlatban fejlődni, mint padban ülni, akkor a munka jó irány lehet.
+            </p>
+        </section>
+
+        <!-- JSON-BÓL BETÖLTÖTT MUNKAÖTLETEK -->
+        <section class="job-section">
+            <h2>Milyen munkákat próbálhatnék ki?</h2>
+            <p class="job-intro">
+                Ezek csak ötletek, hogy lásd, mennyi féle irány létezik. A konkrét lehetőségek mindig attól függnek,
+                hol laksz, milyen ismerőseid vannak, és mit mersz megkeresni. 🙂
+            </p>
+
+            <div id="job-grid" class="job-grid">
+                <!-- Ide kerülnek majd a kártyák JSON-ból -->
+                <p class="job-loading">Példák betöltése...</p>
+            </div>
+        </section>
+
+        <!-- Átvezető gomb a válaszaim oldalra -->
+        <section class="next-step">
+            <h2>Megvan az irány?</h2>
+            <p>Ha most a munkát érzed a legközelebb magadhoz, írd le a saját tervedet.</p>
+            <a href="valaszaim.html" class="next-button">Tervem kitöltése</a>
+        </section>
+
+        <p style="margin-top:24px;">
+            <a href="index.html" style="color:#93c5fd; text-decoration:none;">← Vissza a választó oldalra</a>
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <p>Készítette: Molnár Márk – Neptun: TLZ12Y – Web technológiák 1 projekt</p>
+    </footer>
+
+</div>
+
+<!-- Külső JS fájl a munka oldalhoz -->
+<script src="munka.js"></script>
+
+</body>
+</html>

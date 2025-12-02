@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <!-- jsPDF CDN -->
     <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 </head>
 <body>
-
 
 <div class="page">
 
@@ -159,6 +161,7 @@
         <!-- Gombok -->
         <section class="no-print" style="margin-top: 20px;">
             <p id="formError" class="form-error"></p>
+
             <button type="button" id="pdf-button" class="pdf-button">
                 Válaszaim letöltése PDF-ben
             </button>
@@ -256,11 +259,60 @@
             return el ? el.value : '';
         }
 
-        // PDF GOMB
-        var btn = document.getElementById('pdf-button');
-        if (!btn) return;
+        // =========================
+        // PDF GOMB – jQuery + VALIDÁLÁS
+        // =========================
+        $('#pdf-button').on('click', function (e) {
+            // hibaüzenet törlése
+            $('#formError').text('');
 
-        btn.addEventListener('click', function () {
+            let missing = null;
+
+            // 1. kérdés – út választása
+            if (!$('input[name="valasztott_ut"]:checked').length) {
+                missing = 1;
+            }
+
+            // 2. kérdés – terület
+            if (!missing) {
+                const v2 = $('#siker_terulet').val().trim();
+                if (!v2) missing = 2;
+            }
+
+            // 3. kérdés – lépések
+            if (!missing) {
+                const v3 = $('#lepesek').val().trim();
+                if (!v3) missing = 3;
+            }
+
+            // 4. kérdés – mai egy dolog
+            if (!missing) {
+                const v4 = $('#mai_lepes').val().trim();
+                if (!v4) missing = 4;
+            }
+
+            // 6. kérdés – checkboxok közül legalább egy
+            if (!missing) {
+                const anyChecked =
+                    $('#fog1').prop('checked') ||
+                    $('#fog2').prop('checked') ||
+                    $('#fog3').prop('checked') ||
+                    $('#fog4').prop('checked');
+                if (!anyChecked) missing = 6;
+            }
+
+            if (missing) {
+                e.preventDefault();
+                $('#formError').text(missing + '. kérdés megválaszolása kötelező.');
+                $('html, body').animate({
+                    scrollTop: $('#formError').offset().top - 120
+                }, 400);
+                return; // NINCS PDF létrehozás
+            }
+
+            // =============================
+            // INNEN JÖN A PDF LÉTREHOZÁSA
+            // =============================
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF({
                 orientation: 'p',
@@ -319,7 +371,6 @@
             }
 
             // --- 1. OLDAL SZÖVEGES RÉSZ (egy összefüggő elbeszélés) ---
-
             const now = new Date();
             const year = now.getFullYear();
             const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -403,7 +454,6 @@
             }
 
             // --- ALÁÍRÁS BLOKK AZ 1. OLDAL ALJÁN, KÖZÉPEN ---
-
             doc.setPage(1); // biztosan az első oldalon rajzoljuk
 
             const bottomMargin = 22;
@@ -444,7 +494,6 @@
             }
 
             // --- 2. OLDAL: csak UTÓIRAT ---
-
             doc.addPage();
             let y2 = 35;
             const maxWidth2 = pageWidth - 40;
@@ -471,11 +520,11 @@
             y2 += 10;
 
             const para1 =
-                'Remélem, hogy ezzel mosolyt csaltam az arcodra. Tudom, hogy sokan nyomnak ezzel Téged és én ezt nem azzal a szándékkal készítettem, hanem, mint az unokaöcsém, fontos vagy számomra és nagyon értékes vagy és tele vagy képességgel és tehetséggel és mi hiszünk benned.';
+                'Remélem, hogy ezzel mosolyt csaltam az arcodra. Tudom, hogy sokan nyomnak ezzel Téged és én ezt nem azzal a szándékkal készítettem, hanem, mint az sógorom, fontos vagy számomra és nagyon értékes vagy és tele vagy képességgel és tehetséggel és mi hiszünk benned.';
             writeParagraphPage2(para1);
 
             const para2 =
-                'Szeretnék nagyon boldog, áldott és valódi sikerekben karácsonyt és újévet kívánni számodra ezzel.';
+                'Szeretnék nagyon boldog, áldott és valódi sikerekben gazdag karácsonyt és újévet kívánni számodra ezzel.';
             writeParagraphPage2(para2);
 
             const blessing1 =
@@ -488,7 +537,7 @@
 
             doc.text(fixHungarian('Szeretettel,'), 20, y2 + 2);
             y2 += 10;
-            doc.text(fixHungarian('Márk unokabátyád'), 20, y2 + 2);
+            doc.text(fixHungarian('Márk Sógorod'), 20, y2 + 2);
 
             // --- LETÖLTÉS ---
             doc.save('valaszaim-maros-levente.pdf');
@@ -534,6 +583,9 @@
                     const day = String(d.getDate()).padStart(2, '0');
                     dateInput.value = `${y}-${m}-${day}`;
                 }
+
+                // hibaüzenet törlése
+                $('#formError').text('');
             });
         }
     });
