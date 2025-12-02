@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
         doc.setPage(1);
 
         const bottomMargin = 22;
-        const labelText = 'Maros Levente, a legsikeresebb ember aláírása';
+        const labelText = 'Maros Levente, a legsikeresebb ember aláírása - "A csúcson tali."';
 
         if (signatureImageDataUrl) {
             const sigWidth = 80;
@@ -298,14 +298,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const sigY = bottomTextY - 8 - sigHeight;
             const topTextY = sigY - 8;
 
-            doc.setFont('times', 'bold');
+            /* doc.setFont('times', 'bold');
             doc.setFontSize(13);
             doc.text(
                 fixHungarian('A csúcson tali.'),
                 centerX,
                 topTextY,
                 { align: 'center' }
-            );
+            );*/
 
             const sigX = centerX - sigWidth / 2;
             doc.addImage(
@@ -378,15 +378,15 @@ document.addEventListener('DOMContentLoaded', function () {
         y2 += 10;
 
         const para1 =
-            'Remélem, hogy ezzel mosolyt csaltam az arcodra. Tudom, hogy sokan nyomnak ezzel Téged és én ezt nem azzal a szándékkal készítettem, hanem, mint az sógorom, fontos vagy számomra és nagyon értékes vagy és tele vagy képességgel és tehetséggel és mi hiszünk benned.';
+            'Remélem, hogy ezzel mosolyt csaltam az arcodra. Tudom, hogy sokan nyomnak ezzel Téged és én ezt jó szándékkal készítettem, mint az sógoromnak. Fontos vagy számomra, és nagyon értékes vagy, és tele vagy képességgel és tehetséggel, és mi hiszünk benned.';
         writeParagraphPage2(para1);
 
         const para2 =
-            'Szeretnék nagyon boldog, áldott és valódi sikerekben gazdag karácsonyt és újévet kívánni számodra ezzel.';
+            'Szeretnék nagyon boldog, áldott és valódi sikerekben gazdag karácsonyt és újévet kívánni számodra ezzel!';
         writeParagraphPage2(para2);
 
         const blessing1 =
-            'Áldjon meg téged az Úr, és őrizzen meg téged! - 4 Mózes 6:24';
+            '„Áldjon meg téged az Úr, és őrizzen meg téged!” - 4 Mózes 6:24';
         writeParagraphPage2(blessing1);
 
         const blessing2 =
@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function () {
         y2 += 10;
         doc.text(fixHungarian('Márk Sógorod'), 20, y2 + 2);
 
-        doc.save('valaszaim-maros-levente.pdf');
+        doc.save('a_siker_receptje.pdf');
     });
 
     const clearBtn = document.getElementById('clear-answers');

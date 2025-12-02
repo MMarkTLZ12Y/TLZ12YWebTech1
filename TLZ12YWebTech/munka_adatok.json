@@ -5,7 +5,7 @@
     "hours": "20–30 óra / hét (rugalmas)",
     "goodFor": "ha érdekel a C#, Java vagy más nyelv, és szívesen tanulsz senior fejlesztőktől",
     "description": "Evosoft jellegű nagyobb cégnél dolgozol csapatban. Kisebb feladatokat kapsz, bugokat javítasz, tesztelésben segítesz, és közben látod, hogyan működik egy profi fejlesztői környezet.",
-    "pay": "kb. nettó 180–280 ezer Ft / hó (cégfüggő)"
+    "pay": "kb. nettó 260 ezer Ft / hó (cégfüggő)"
   },
   {
     "title": "Webfejlesztő gyakornok (kis fejlesztőcég)",
@@ -13,7 +13,7 @@
     "hours": "részmunkaidő, megbeszélés szerint",
     "goodFor": "ha érdekel a HTML, CSS, JavaScript, és szeretsz weboldalakon, kisebb appokon dolgozni",
     "description": "Egy kisebb fejlesztőcégnél vagy ügynökségnél dolgozol. Egyszerűbb oldalakat, landing page-eket, kisebb funkciókat raksz össze, közben megtanulod, hogyan lesz egy ötletből kész webes megoldás.",
-    "pay": "kb. nettó 150–250 ezer Ft / hó (megbeszélés alapján)"
+    "pay": "kb. nettó 250 ezer Ft / hó (megbeszélés alapján)"
   },
   {
     "title": "Raktáros / logisztikai segítő",
@@ -21,7 +21,7 @@
     "hours": "rugalmas, műszakos is lehet",
     "goodFor": "ha szereted a mozgást, nem riadsz meg a pakolástól és szeretnél rendszerekben gondolkodni",
     "description": "Áruk mozgatása, rendszerezése, címkézés, készletek kezelése – közben megtanulod, hogyan működik a háttér egy nagyobb cég életében.",
-    "pay": "kb. nettó 180–280 ezer Ft / hó"
+    "pay": "kb. nettó 180 ezer Ft / hó"
   },
   {
     "title": "Online tartalomkészítő gyakornok",
@@ -29,6 +29,6 @@
     "hours": "rugalmas",
     "goodFor": "ha érdekel a videózás, grafika, közösségi média és szívesen alkotsz kreatív tartalmat",
     "description": "Segítesz posztok, rövid videók, egyszerű grafikák készítésében. Megtanulsz online márkában gondolkodni, és belelátsz, hogyan épül fel egy social média jelenlét.",
-    "pay": "kb. nettó 150–250 ezer Ft / hó"
+    "pay": "kb. nettó 180 ezer Ft / hó"
   }
 ]
