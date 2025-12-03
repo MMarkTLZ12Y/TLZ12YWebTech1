@@ -906,6 +906,12 @@ header p {
     margin-bottom: 10px;
 }
 
+.form-section-title.field-error {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+
 
 .video-controls {
     margin-top: 12px;
@@ -967,3 +973,5 @@ header p {
     color: #9ca3af;
     margin: 4px 0 0;
 }
+
+

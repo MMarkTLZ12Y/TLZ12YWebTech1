@@ -4,9 +4,11 @@ let profileImageRatio = 1;
 let signatureImageDataUrl = null;
 let signatureImageRatio = 1;
 
+
 function hexToRgb(hex) {
     if (!hex) return null;
     hex = hex.replace('#', '');
+
     if (hex.length === 3) {
         hex = hex.split('').map(c => c + c).join('');
     }
@@ -20,6 +22,7 @@ function hexToRgb(hex) {
     };
 }
 
+
 function fixHungarian(text) {
     if (!text) return text;
     return text
@@ -28,6 +31,7 @@ function fixHungarian(text) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    
     const imgProfile = new Image();
     imgProfile.src = 'kepek/levi.jpg';
     imgProfile.onload = function () {
@@ -42,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         profileImageRatio = imgProfile.naturalHeight / imgProfile.naturalWidth;
     };
 
+   
     const imgSign = new Image();
     imgSign.src = 'kepek/alairas.png';
     imgSign.onload = function () {
@@ -56,42 +61,84 @@ document.addEventListener('DOMContentLoaded', function () {
         signatureImageRatio = imgSign.naturalHeight / imgSign.naturalWidth;
     };
 
+    
     const dateInput = document.getElementById('szerzodes_datum');
     if (dateInput && !dateInput.value) {
         const d = new Date();
         const y = d.getFullYear();
         const m = String(d.getMonth() + 1).padStart(2, '0');
         const day = String(d.getDate()).padStart(2, '0');
-        dateInput.value = y + '-' + m + '-' + day;
+        dateInput.value = `${y}-${m}-${day}`;
     }
 
+ 
     function get(id) {
         const el = document.getElementById(id);
         return el ? el.value : '';
     }
 
+
+    function clearAllFieldErrors() {
+        document
+            .querySelectorAll('.form-section-title.field-error')
+            .forEach(el => el.classList.remove('field-error'));
+    }
+
+    /**
+     * A megadott mező(k)hez tartozó kérdéscím (h2.form-section-title)
+     * kapja meg a .field-error class-t → piros lesz a kérdés szövege.
+     *
+     * @param {string} selector - pl. '#siker_terulet' vagy
+     *                            'input[name="valasztott_ut"]'
+     */
+    function addFieldError(selector) {
+        const fields = document.querySelectorAll(selector);
+        if (!fields.length) return;
+
+        fields.forEach(field => {
+            const section = field.closest('section');
+            if (!section) return;
+
+            const heading = section.querySelector('.form-section-title');
+            if (heading) {
+                heading.classList.add('field-error');
+            }
+        });
+    }
+
     $('#pdf-button').on('click', function (e) {
         $('#formError').text('');
+        clearAllFieldErrors();
 
         let missing = null;
 
         if (!$('input[name="valasztott_ut"]:checked').length) {
             missing = 1;
+            addFieldError('input[name="valasztott_ut"]');
         }
 
         if (!missing) {
             const v2 = $('#siker_terulet').val().trim();
-            if (!v2) missing = 2;
+            if (!v2) {
+                missing = 2;
+                addFieldError('#siker_terulet');
+            }
         }
 
         if (!missing) {
             const v3 = $('#lepesek').val().trim();
-            if (!v3) missing = 3;
+            if (!v3) {
+                missing = 3;
+                addFieldError('#lepesek');
+            }
         }
 
         if (!missing) {
             const v4 = $('#mai_lepes').val().trim();
-            if (!v4) missing = 4;
+            if (!v4) {
+                missing = 4;
+                addFieldError('#mai_lepes');
+            }
         }
 
         if (!missing) {
@@ -101,15 +148,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#fog3').prop('checked') ||
                 $('#fog4').prop('checked');
 
-            if (!anyChecked) missing = 6;
+            if (!anyChecked) {
+                missing = 6;
+                addFieldError('#fog1, #fog2, #fog3, #fog4');
+            }
         }
 
         if (missing) {
             e.preventDefault();
-            $('#formError').text(missing + '. kérdés megválaszolása kötelező.');
+            $('#formError').text(
+                missing + '. kérdés megválaszolása kötelező.'
+            );
+
             $('html, body').animate({
                 scrollTop: $('#formError').offset().top - 120
             }, 400);
+
             return;
         }
 
@@ -122,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         doc.setFont('times', 'normal');
 
-        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageWidth  = doc.internal.pageSize.getWidth();
         const pageHeight = doc.internal.pageSize.getHeight();
         let y = 20;
 
@@ -133,10 +187,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const rgbColor = hexToRgb(chosenColor);
 
         if (profileImageDataUrl) {
-            const imgWidth = 60;
+            const imgWidth  = 60;
             const imgHeight = imgWidth * profileImageRatio;
-            const x = (pageWidth - imgWidth) / 2;
-            const topY = 15;
+            const x     = (pageWidth - imgWidth) / 2;
+            const topY  = 15;
 
             if (rgbColor) {
                 doc.setDrawColor(rgbColor.r, rgbColor.g, rgbColor.b);
@@ -146,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             doc.addImage(profileImageDataUrl, 'JPEG', x, topY, imgWidth, imgHeight);
 
-            const nameY = topY + imgHeight + 16;
+            const nameY    = topY + imgHeight + 16;
             const taglineY = nameY + 8;
 
             doc.setFont('times', 'bold');
@@ -190,11 +244,11 @@ document.addEventListener('DOMContentLoaded', function () {
             y = 56;
         }
 
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0');
-        const day = String(now.getDate()).padStart(2, '0');
-        const hours = String(now.getHours()).padStart(2, '0');
+        const now     = new Date();
+        const year    = now.getFullYear();
+        const month   = String(now.getMonth() + 1).padStart(2, '0');
+        const day     = String(now.getDate()).padStart(2, '0');
+        const hours   = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
 
         const dateText = `${year}.${month}.${day}.`;
@@ -216,12 +270,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         let sikerTerulet = get('siker_terulet').trim();
-        let sikerResz = '';
+        let sikerResz    = '';
         if (sikerTerulet) {
             sikerResz = `, különösen a(z) ${sikerTerulet} területén`;
         }
 
-        const lepesekText = get('lepesek').trim();
+        const lepesekText  = get('lepesek').trim();
         const maiLepesText = get('mai_lepes').trim();
 
         const paragraph1 =
@@ -235,7 +289,10 @@ document.addEventListener('DOMContentLoaded', function () {
             doc.setFontSize(fontSize);
 
             const maxWidth = pageWidth - 40;
-            const lines = doc.splitTextToSize(fixHungarian(text), maxWidth);
+            const lines = doc.splitTextToSize(
+                fixHungarian(text),
+                maxWidth
+            );
 
             lines.forEach(line => {
                 doc.text(line, 20, y);
@@ -286,28 +343,18 @@ document.addEventListener('DOMContentLoaded', function () {
         doc.setPage(1);
 
         const bottomMargin = 22;
-        const labelText = 'Maros Levente, a legsikeresebb ember aláírása - "A csúcson tali."';
+        const labelText =
+            'Maros Levente, a legsikeresebb ember aláírása - "A csúcson tali."';
 
         if (signatureImageDataUrl) {
-            const sigWidth = 80;
+            const sigWidth  = 80;
             const sigHeight = sigWidth * signatureImageRatio;
-            const centerX = pageWidth / 2;
+            const centerX   = pageWidth / 2;
 
             const bottomTextY = pageHeight - bottomMargin;
+            const sigY        = bottomTextY - 8 - sigHeight;
+            const sigX        = centerX - sigWidth / 2;
 
-            const sigY = bottomTextY - 8 - sigHeight;
-            const topTextY = sigY - 8;
-
-            /* doc.setFont('times', 'bold');
-            doc.setFontSize(13);
-            doc.text(
-                fixHungarian('A csúcson tali.'),
-                centerX,
-                topTextY,
-                { align: 'center' }
-            );*/
-
-            const sigX = centerX - sigWidth / 2;
             doc.addImage(
                 signatureImageDataUrl,
                 'PNG',
@@ -436,6 +483,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 dateInput.value = `${y}-${m}-${day}`;
             }
 
+            clearAllFieldErrors();
             $('#formError').text('');
         });
     }
