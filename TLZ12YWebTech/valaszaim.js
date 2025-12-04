@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function () {
         y2 += 10;
 
         const para1 =
-            'Remélem, hogy ezzel mosolyt csaltam az arcodra. Tudom, hogy sokan nyomnak ezzel Téged és én ezt jó szándékkal készítettem, mint az sógoromnak. Fontos vagy számomra, és nagyon értékes vagy, és tele vagy képességgel és tehetséggel, és mi hiszünk benned.';
+            'Remélem, hogy ezzel mosolyt csaltam az arcodra. Tudom, hogy sokan nyomnak ezzel Téged és én ezt jó szándékkal készítettem, mint a sógoromnak. Fontos vagy számomra, és nagyon értékes vagy, és tele vagy képességgel és tehetséggel, és mi hiszünk benned.';
         writeParagraphPage2(para1);
 
         const para2 =
