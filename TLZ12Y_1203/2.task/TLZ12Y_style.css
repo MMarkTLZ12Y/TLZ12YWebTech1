@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#terulet {
+    width: 350px;
+    min-height: 250px;
+    background-color: #c9ccee; /* hasonló lila, mint a mintán */
+    padding: 15px 20px;
+    margin: 10px 0;
+}
+
+button#betoltes {
+    padding: 6px 12px;
+    cursor: pointer;
+}

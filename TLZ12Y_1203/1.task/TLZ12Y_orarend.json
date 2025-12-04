@@ -1,0 +1,141 @@
+{
+    "kurzus": [
+        {
+            "targy": "WebTech eloadas",
+            "idopont": {
+                "nap": "Hetfo",
+                "tol": "12:00",
+                "ig": "14:00"
+            },
+            "helyszin": "5.eloado",
+            "oktato": "Dr. Agárdi Anita",
+            "szak": "ProgTerv",
+            "tipus": "Eloadas"
+        },
+        {
+            "targy": "WebTech gyakorlat",
+            "idopont": {
+                "nap": "Szerda",
+                "tol": "12:00",
+                "ig": "14:00"
+            },
+            "helyszin": "In 101",
+            "oktato": "Dr. Bednarik László",
+            "szak": "ProgTerv",
+            "tipus": "Gyakorlat"
+        },
+        {
+            "targy": "Mesterséges Intelligencia eloadas",
+            "idopont": {
+                "nap": "Kedd",
+                "tol": "10:00",
+                "ig": "12:00"
+            },
+            "helyszin": "32.eloado",
+            "oktato": "Fazekas Levente",
+            "szak": "ProgTerv",
+            "tipus": "Eloadas"
+        },
+        {
+            "targy": "Mesterséges Intelligencia gyakorlat",
+            "idopont": {
+                "nap": "Kedd",
+                "tol": "12:00",
+                "ig": "14:00"
+            },
+            "helyszin": "32.eloado",
+            "oktato": "Fazekas Levente",
+            "szak": "ProgTerv",
+            "tipus": "Gyakorlat"
+        },
+        {
+            "targy": "Algoritmusok és vizsgálatuk eloadas",
+            "idopont": {
+                "nap": "Kedd",
+                "tol": "14:00",
+                "ig": "16:00"
+            },
+            "helyszin": "30.eloado",
+            "oktato": "Dr. Házy Attila",
+            "szak": "ProgTerv",
+            "tipus": "Eloadas"
+        },
+        {
+            "targy": "Algoritmusok és vizsgálatuk gyakorlat",
+            "idopont": {
+                "nap": "Kedd",
+                "tol": "16:00",
+                "ig": "18:00"
+            },
+            "helyszin": "30.eloado",
+            "oktato": "Dr. Házy Attila",
+            "szak": "ProgTerv",
+            "tipus": "Gyakorlat"
+        },
+        {
+            "targy": "Bevezetés a Virtuális Valóságba eloadas",
+            "idopont": {
+                "nap": "Szerda",
+                "tol": "08:00",
+                "ig": "10:00"
+            },
+            "helyszin": "214-es terem",
+            "oktato": "Dr. Lajos Sándor",
+            "szak": "ProgTerv",
+            "tipus": "Eloadas"
+        },
+        {
+            "targy": "Bevezetés a Virtuális Valóságba gyakorlat",
+            "idopont": {
+                "nap": "Szerda",
+                "tol": "10:00",
+                "ig": "12:00"
+            },
+            "helyszin": "214-es terem",
+            "oktato": "Dr. Lajos Sándor",
+            "szak": "ProgTerv",
+            "tipus": "Gyakorlat"
+        },
+        {
+            "targy": "Vállalati információs rendszerek eloadas",
+            "idopont": {
+                "nap": "Szerda",
+                "tol": "14:00",
+                "ig": "16:00"
+            },
+            "helyszin": "In 103",
+            "oktato": "Dr. Savári Péter",
+            "szak": "ProgTerv",
+            "tipus": "Eloadas"
+        },
+        {
+            "targy": "Vállalati információs rendszerek gyakorlat",
+            "idopont": {
+                "nap": "Szerda",
+                "tol": "18:00",
+                "ig": "20:00"
+            },
+            "helyszin": "In 103",
+            "oktato": "Dr. Sasvári Péter",
+            "szak": "ProgTerv",
+            "tipus": "Gyakorlat"
+        }
+    ],
+
+    "cim": {
+        "iranyitoszam": 3515,
+        "varos": "Miskolc",
+        "utca": "Egyetemváros"
+    },
+
+    "telefonszam": [
+        {
+            "tipus": "Vezetékes",
+            "szam": "0646 555-125"
+        },
+        {
+            "tipus": "Mobil",
+            "szam": "0670 555-4567"
+        }
+    ]
+}
