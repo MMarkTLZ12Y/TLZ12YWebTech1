@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryUI feladatok – TLZ12Y</title>
+
+    <link rel="stylesheet"
+          href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <style>
+        body{font-family:Arial, Helvetica, sans-serif;margin:20px;}
+        h1{font-size:24px;margin-bottom:10px;}
+        h2{margin-top:30px;}
+        .task{margin-bottom:30px;}
+        #box{
+            width:150px;
+            height:150px;
+            background:#2ea333;
+            color:#fff;
+            padding:10px;
+            margin-top:20px;
+        }
+        #box p{margin:0 0 5px 0;}
+
+        #doboz2{
+            width:150px;
+            height:150px;
+            background:#9999ff;
+            padding:10px;
+            margin-top:20px;
+        }
+        #doboz2 p{margin:0 0 5px 0;}
+
+        form{margin-top:20px;}
+        label{display:block;margin-top:5px;}
+        input[type=text],
+        input[type=email],
+        input[type=password]{width:180px;}
+
+        .btn-row input{margin-right:5px;}
+
+        #dialog-confirm{display:none;}
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <script src="TLZ12Yui_6.js"></script>
+</head>
+<body>
+
+<h1>jQueryUI feladatok – TLZ12Y</h1>
+
+<div class="task" id="task1">
+    <h2>1. feladat – HTML Add elements (5. feladat bővítve)</h2>
+
+    <div class="btn-row">
+        <input type="button" id="btnSzoveg" value="Szöveg hozzáadása">
+        <input type="button" id="btnGomb" value="Gomb">
+        <input type="button" id="btnUjGomb" value="Új gomb felvétele">
+        <input type="button" id="btnFejlec" value="Fejléc felvétele">
+        <input type="button" id="btnAlcim" value="Alcím felvétele">
+        <input type="button" id="btnUrlapFejlec" value="Űrlap fejléce">
+    </div>
+
+    <div id="box">
+        <p>ME GEIK - PTI</p>
+        <p>• • • • •</p>
+    </div>
+
+    <form id="jelentkezes">
+        <p>
+            <label>Név:
+                <input type="text" name="nev">
+            </label>
+        </p>
+        <p>
+            <label>E-mail:
+                <input type="email" name="email">
+            </label>
+        </p>
+        <p>
+            <label>Jelszó:
+                <input type="password" name="jelszo">
+            </label>
+        </p>
+        <p>
+            <input type="submit" value="Jelentkezés">
+        </p>
+    </form>
+
+    <p id="forras">
+        <strong>Forrás:</strong>
+        <a href="https://www.w3schools.com/jquery/jquery_dom_get.asp">
+            http://www.w3schools.com/jquery/jquery_dom_get.asp
+        </a>
+    </p>
+</div>
+
+
+<div class="task" id="task2">
+    <h2>2. feladat – Doboz eltávolítása / kiürítése (6. feladat bővítve)</h2>
+
+    <div class="btn-row">
+        <input type="button" id="btnRemove" value="Doboz eltávolítása">
+        <input type="button" id="btnClear" value="A DIV elemek kiürítése">
+    </div>
+
+    <div id="doboz2">
+        <p>THE - PTI</p>
+        <p>• • • • •</p>
+    </div>
+
+    <form>
+        <p>
+            <label>Név:
+                <input type="text">
+            </label>
+        </p>
+        <p>
+            <label>E-mail:
+                <input type="email">
+            </label>
+        </p>
+        <p>
+            <label>Jelszó:
+                <input type="password">
+            </label>
+        </p>
+        <p>
+            <input type="submit" value="Jelentkezés">
+        </p>
+    </form>
+
+    <p>
+        <strong>Forrás:</strong>
+        <a href="https://www.w3schools.com/jquery/jquery_dom_get.asp">
+            http://www.w3schools.com/jquery/jquery_dom_get.asp
+        </a>
+    </p>
+</div>
+
+<div id="dialog-confirm" title="Doboz eltávolítása?">
+    <p>Biztosan töröljem a dobozt?</p>
+</div>
+
+</body>
+</html>

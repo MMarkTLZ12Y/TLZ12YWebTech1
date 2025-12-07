@@ -11,7 +11,7 @@ h1 {
 #terulet {
     width: 350px;
     min-height: 250px;
-    background-color: #c9ccee; /* lila doboz */
+    background-color: #c9ccee;
     padding: 15px 20px;
     margin: 10px 0;
 }
@@ -21,7 +21,6 @@ button#betoltes {
     cursor: pointer;
 }
 
-/* teljes órarend listához */
 .orarend {
     list-style-type: none;
     padding-left: 0;

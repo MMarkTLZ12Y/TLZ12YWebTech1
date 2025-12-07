@@ -28,7 +28,6 @@ $(function () {
 
             html += "<ul class='orarend'>";
 
-            // 🔹 itt megy végig az összes órán
             for (var j = 0; j < orak.length; j++) {
                 var ora = orak[j];
 

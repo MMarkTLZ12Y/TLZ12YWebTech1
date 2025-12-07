@@ -4,11 +4,9 @@ $(function () {
 
         $.getJSON("TLZ12Y_orarend.json", function (adat) {
 
-            // cím + telefonok
             var cim = adat.cim;
             var telefonok = adat.telefonszam;
 
-            // CSAK 1 óra adata kell -> az első elem
             var ora = adat.kurzus[0];
 
             var html = "";

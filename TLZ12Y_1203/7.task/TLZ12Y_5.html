@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery feladatok</title>
+
+    <style>
+        body{font-family: Arial, Helvetica, sans-serif; margin:20px;}
+        h1{font-size:20px; margin-bottom:10px;}
+        #doboz{
+            width:150px;
+            height:150px;
+            background:#9999ff;
+            padding:10px;
+            margin-top:20px;
+        }
+        #doboz p{margin:0 0 5px 0;}
+        form{margin-top:20px;}
+        label{display:block; margin-top:5px;}
+        input[type=text],
+        input[type=email],
+        input[type=password]{width:160px;}
+        #gombok input{margin-right:5px;}
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="TLZ12Y_5.js"></script>
+</head>
+<body>
+
+    <h1>jQuery feladatok</h1>
+
+    <div id="gombok">
+        <input type="button" id="btnRemove" value="Doboz eltávolítása">
+        <input type="button" id="btnClear" value="A DIV elemek kiürítése">
+    </div>
+
+    <div id="doboz">
+        <p>THE - PTI</p>
+        <p>• • • • •</p>
+    </div>
+
+    <form>
+        <p>
+            <label>Név:
+                <input type="text" name="nev">
+            </label>
+        </p>
+        <p>
+            <label>E-mail:
+                <input type="email" name="email">
+            </label>
+        </p>
+        <p>
+            <label>Jelszó:
+                <input type="password" name="jelszo">
+            </label>
+        </p>
+        <p>
+            <input type="submit" value="Jelentkezés">
+        </p>
+    </form>
+
+    <p>
+        <strong>Forrás:</strong>
+        <a href="https://www.w3schools.com/jquery/jquery_dom_get.asp">
+            http://www.w3schools.com/jquery/jquery_dom_get.asp
+        </a>
+    </p>
+
+</body>
+</html>
